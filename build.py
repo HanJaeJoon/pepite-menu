@@ -21,7 +21,7 @@ import json, os, sys
 
 import docx
 from docx.shared import Pt, Cm, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK, WD_LINE_SPACING
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
@@ -79,14 +79,44 @@ WINE_STYLE = {
     'region_size': 7,
     'desc_size': 8,
     'price_size': 9.5,
-    'item_gap': 6,
+    'item_gap': 8,      # 와인 한 줄 높이와 비슷한 값. PAGES 의 분할점과 함께 맞춰짐
 }
 
-# 페이지 구성: 리스트 하나 = 한 페이지에 들어갈 섹션들
+# 페이지 구성. 리스트 하나 = 한 페이지.
+#
+#   페이지    ['STARTER', 'PASTA']                     섹션 목록
+#             {'sections': [...], 'item_gap': 36}      그 페이지만 항목 간격 지정
+#   섹션      'STARTER'                                섹션 전체
+#             ('WHITE WINE', 0, 10)                    items[0:10] 만
+#             ('WHITE WINE', 10, None, False)          items[10:], 헤더 없이
+#
+# item_gap 은 "페이지 하단에 여백을 남기지 않는다"는 원칙에 따라 페이지마다
+# 정한 값이다. 항목 수가 적은 페이지는 간격이 넓다. 값을 바꾸면 반드시
+# 빌드 후 PDF 로 페이지 수와 경계를 확인할 것.
 PAGES = {
-    'food': [['STARTER'], ['PASTA'], ['MAIN', 'MEAL'], ['SIDE', 'DESSERT']],
-    'lunch': [['STARTER'], ['PASTA', 'MAIN'], ['MEAL', 'DESSERT', 'SIDE', 'DRINKS']],
-    'wine': [['WHITE WINE'], ['RED WINE'], ['SPARKLING WINE', 'HOUSE WINE']],
+    'food': [
+        {'sections': ['STARTER'], 'item_gap': 34},          # 7항목
+        {'sections': ['PASTA'], 'item_gap': 53},            # 6항목
+        {'sections': ['MAIN', 'MEAL'], 'item_gap': 38},     # 4+2항목
+        {'sections': ['SIDE', 'DESSERT'], 'item_gap': 34},  # 5+2항목
+    ],
+    # 런치는 항목이 많아 2페이지에 넣으려면 기본 9pt 보다 좁혀야 한다.
+    'lunch': [
+        {'sections': ['STARTER', 'PASTA'], 'item_gap': 6},                     # 6+4항목
+        {'sections': ['MAIN', 'MEAL', 'DESSERT', 'SIDE', 'DRINKS'],
+         'item_gap': 6},                                                       # 3+1+2+1+2항목
+    ],
+    # 와인은 섹션당 항목이 많아 한 섹션이 한 페이지에 안 들어간다. 섹션마다
+    # 새 페이지를 시작하면 두 번째 페이지가 반쯤 비므로(이전 구성이 그랬다),
+    # 섹션을 페이지 사이로 이어 흘리고 끊는 위치를 여기에 명시한다.
+    # 덕분에 앞쪽에 한 종을 추가해도 뒤 페이지가 밀리지 않는다.
+    'wine': [
+        [('WHITE WINE', 0, 10)],
+        [('WHITE WINE', 10, None, False)],
+        [('RED WINE', 0, 10)],
+        [('RED WINE', 10, None, False), ('SPARKLING WINE', 0, 4)],
+        [('SPARKLING WINE', 4, None, False), 'HOUSE WINE'],
+    ],
 }
 
 # 특정 섹션만 헤더 위 간격을 다르게 (기본값은 STYLE['section_gap_before'])
@@ -94,6 +124,21 @@ PAGES = {
 SECTION_GAP_BEFORE = {
     ('food', 'MEAL'): 26,     # MAIN 과 MEAL 사이를 한 줄 더 띄운다
 }
+
+
+def page_spec(page):
+    """페이지 정의를 (섹션 목록, 항목 간격) 으로 정규화."""
+    if isinstance(page, dict):
+        return page['sections'], page.get('item_gap')
+    return page, None
+
+
+def section_spec(entry):
+    """섹션 정의를 (이름, start, end, 헤더표시) 로 정규화."""
+    if isinstance(entry, (list, tuple)):
+        name, start, end = entry[0], entry[1], entry[2]
+        return name, start, end, (entry[3] if len(entry) > 3 else True)
+    return entry, 0, None, True
 
 
 # --------------------------------------------------------------------------
@@ -240,6 +285,19 @@ def item_table(doc, n_rows):
     return t
 
 
+def page_break(doc):
+    """페이지 나눔. 앞 페이지가 꽉 찬 경우 이 문단 자체가 다음 페이지로 밀려
+    빈 페이지가 생기므로 높이를 1pt 로 고정한다."""
+    p = doc.add_paragraph()
+    pf = p.paragraph_format
+    pf.space_before = pf.space_after = Pt(0)
+    pf.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+    pf.line_spacing = Pt(1)
+    r = p.add_run()
+    r.font.size = Pt(1)
+    r.add_break(WD_BREAK.PAGE)
+
+
 def price_cell(cell, price, size=None, note=None):
     """가격. note 를 주면 가격 밑에 작은 글씨로 한 줄 더 (예: 1piece 추가 6.5)."""
     line(cell, price, font=STYLE['font_head'], size=size or STYLE['price_size'],
@@ -259,13 +317,17 @@ def build_dish(key, out_name):
 
     for pi, page in enumerate(PAGES[key]):
         if pi:
-            doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+            page_break(doc)
+        sections, gap = page_spec(page)
+        gap = STYLE['item_gap'] if gap is None else gap
         doc_title(doc, data['title'])
-        for sec in page:
-            s = by_name[sec]
-            section_header(doc, s['name'], SECTION_GAP_BEFORE.get((key, sec)))
-            t = item_table(doc, len(s['items']))
-            for row, it in zip(t.rows, s['items']):
+        for entry in sections:
+            sec, start, end, show_header = section_spec(entry)
+            items = by_name[sec]['items'][start:end]
+            if show_header:
+                section_header(doc, sec, SECTION_GAP_BEFORE.get((key, sec)))
+            t = item_table(doc, len(items))
+            for row, it in zip(t.rows, items):
                 c = row.cells[0]
                 line(c, it['kor'], font=STYLE['font_kor'], size=STYLE['name_size'],
                      bold=True, first=True, after=1, small=it.get('kor_small'))
@@ -278,7 +340,7 @@ def build_dish(key, out_name):
                 if it['desc_eng']:
                     line(c, it['desc_eng'], font=STYLE['font_eng'],
                          size=STYLE['desc_size'], color=STYLE['gray'])
-                c.paragraphs[-1].paragraph_format.space_after = Pt(STYLE['item_gap'])
+                c.paragraphs[-1].paragraph_format.space_after = Pt(gap)
                 price_cell(row.cells[1], it['price'], note=it.get('price_note'))
 
     doc.save(os.path.join(DIST, out_name))
@@ -292,12 +354,16 @@ def build_wine(out_name):
 
     for pi, page in enumerate(PAGES['wine']):
         if pi:
-            doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
-        for sec in page:
-            s = by_name[sec]
-            section_header(doc, s['name'])
-            t = item_table(doc, len(s['items']))
-            for row, it in zip(t.rows, s['items']):
+            page_break(doc)
+        sections, gap = page_spec(page)
+        gap = WINE_STYLE['item_gap'] if gap is None else gap
+        for entry in sections:
+            sec, start, end, show_header = section_spec(entry)
+            items = by_name[sec]['items'][start:end]
+            if show_header:
+                section_header(doc, sec, SECTION_GAP_BEFORE.get(('wine', sec)))
+            t = item_table(doc, len(items))
+            for row, it in zip(t.rows, items):
                 c = row.cells[0]
                 line(c, it['kor'], font=STYLE['font_kor'], size=WINE_STYLE['name_size'],
                      bold=True, first=True, after=0)
@@ -313,7 +379,7 @@ def build_wine(out_name):
                 if it['desc_eng']:
                     line(c, it['desc_eng'], font=STYLE['font_eng'],
                          size=WINE_STYLE['desc_size'], color=STYLE['gray'])
-                c.paragraphs[-1].paragraph_format.space_after = Pt(WINE_STYLE['item_gap'])
+                c.paragraphs[-1].paragraph_format.space_after = Pt(gap)
                 price_cell(row.cells[1], it['price'], WINE_STYLE['price_size'])
 
     doc.save(os.path.join(DIST, out_name))
