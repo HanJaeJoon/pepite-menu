@@ -35,10 +35,14 @@ DEBUG = '--debug' in sys.argv
 # --------------------------------------------------------------------------
 # 스타일 (여기만 고치면 전체 메뉴판에 반영됨)
 # --------------------------------------------------------------------------
+# 폰트는 원본 4개 파일이 문서마다 달랐다.
+#   요리/런치/코스 = 바탕 + Cambria(테마 기본), 와인 = 맑은 고딕 + Times New Roman,
+#   코스 영문에는 서울남산체 L 이 20군데 섞여 있었음.
+# 다수(요리/런치/코스)의 명조 기조를 기준으로 전 문서를 통일했다.
 STYLE = {
-    'font_head': 'ChunkFive Ex',   # PÉPITE / 섹션 헤더
-    'font_kor': '맑은 고딕',
-    'font_eng': 'Times New Roman',
+    'font_head': 'ChunkFive Ex',    # 로고 / 섹션 헤더 / 가격
+    'font_kor': '바탕',              # 한글 본문 (원본 요리/런치/코스와 동일)
+    'font_eng': 'Times New Roman',  # 영문 본문 (원본 와인과 동일, Cambria 와 같은 명조 계열)
 
     'title_size': 22,              # PÉPITE
     'section_size': 18,            # STARTER, PASTA ...
@@ -319,7 +323,9 @@ def build_course(out_name):
         r.font.bold = bold
         if color is not None:
             r.font.color.rgb = color
-        r._element.rPr.rFonts.set(qn('w:eastAsia'), font or STYLE['font_kor'])
+        # 한글 대체 폰트는 헤드 폰트를 쓰는 줄(로고/섹션명)만 예외로 둔다
+        ea = font if font == STYLE['font_head'] else STYLE['font_kor']
+        r._element.rPr.rFonts.set(qn('w:eastAsia'), ea)
         return p
 
     t = put(data['title'], 20, font=STYLE['font_head'], after=2, color=STYLE['logo'])
