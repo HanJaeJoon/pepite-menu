@@ -38,7 +38,7 @@
         },
         {
           "kor": "도멘 데 디오니소스 비오니에 뀌베 클레멘타인",
-          "eng": "Domaine de Dionysos Viognier Cuvee Clementine",
+          "eng": "Domaine de Dionysos Viognier Cuvée Clémentine",
           "price": "90.",
           "region": "프랑스 > 남부론 > 께한 | 비오니에100%",
           "desc_kor": "백도와 흰 꽃 향이 우아하게 펼쳐지는 아로마틱 화이트 와인으로, 부드러운 질감과 은은한 향신료의 여운이 고급스러운 와인.",
@@ -118,15 +118,15 @@
         },
         {
           "kor": "도멘 프랑수아 럼프 지브리 빌라쥐 블랑 떼프 데 쉐네브",
-          "eng": "Domaine Francois Lumpp Givry Blanc Teppe des Cheneves",
+          "eng": "Domaine François Lumpp Givry Blanc Teppe des Chêneves",
           "price": "180.",
           "region": "프랑스 > 브루고뉴 > 지브리 마을 | 샤르도네 100%",
           "desc_kor": "떼프 데 쉐네브 포도밭의 샤르도네로 만들어진 화이트 와인으로 샤르도네의 고소한 뉘앙스 그리고 2022 빈티지의 집중도 있는 과실감이 잘 표현된 화이트 와인.",
-          "desc_eng": "A white wine made from Chardonnay grapes from the Téff de Chêneves vineyard, which beautifully captures the nutty nuances of Chardonnay and the concentrated fruitiness of the 2022 vintage."
+          "desc_eng": "A white wine made from Chardonnay grapes from the Teppe des Chêneves vineyard, which beautifully captures the nutty nuances of Chardonnay and the concentrated fruitiness of the 2022 vintage."
         },
         {
           "kor": "도멘 패트릭 자비에 사비니 레 본 블랑 \"레 몽쉐느부아\"",
-          "eng": "Domaine Patrick Javillier Savigny-les-Beaune Blanc \"Les Monts Cheneveux\"",
+          "eng": "Domaine Patrick Javillier Savigny-lès-Beaune Blanc \"Les Monts Cheneveux\"",
           "price": "200.",
           "region": "프랑스 > 부르고뉴 > 사비니 레본 | 샤르도네100%",
           "desc_kor": "견과류와 흰 꽃 향이 고요하게 어우러지는 섬세한 부르고뉴 와인으로, 우아한 산도와 미묘한 너트 향이 긴 여운을 남기는 와인.",
@@ -142,7 +142,7 @@
         },
         {
           "kor": "도멘 샤비 슈에 뫼르소 프리미에 크뤼 레 쥬느브리에흐",
-          "eng": "Domaine Chavy-Chouet Meursault 1er Cru Les Genevrieres",
+          "eng": "Domaine Chavy-Chouet Meursault 1er Cru Les Genevrières",
           "price": "590.",
           "region": "프랑스 > 뫼르소 | 샤르도네100%",
           "desc_kor": "프리미에 크뤼 포도밭으로 헤이즐넛, 화이트 플라워, 주니퍼 베리의 아로마와 입안에서 우아한 산도와 풍부한 미네랄 뉘앙스를 표현하는 와인.",
@@ -154,7 +154,7 @@
           "price": "1,000.",
           "region": "프랑스 > 부르고뉴 > 코트 드 본 | 샤르도네100%",
           "desc_kor": "싱그러운 사과 & 살구, 고소한 헤이즐넛 & 월넛 아로마와 풍부한 질감 그리고 끊임없이 이어지는 산도를 잘 표현한 와인.",
-          "desc_eng": "A wine expressing aromas of hazelnut, white flowers, and juniper berry, with elegant acidity and rich mineral nuances on the palate."
+          "desc_eng": "A wine expressing crisp apple and apricot alongside nutty hazelnut and walnut aromas, with a rich texture and a seamlessly persistent acidity."
         }
       ]
     },
@@ -163,7 +163,7 @@
       "items": [
         {
           "kor": "벨 꼴레 바르베라 다스티 수페리오레 DOCG 누완다",
-          "eng": "Bel Colle Barbera dAsti Superiore Nuwanda",
+          "eng": "Bel Colle Barbera d'Asti Superiore Nuwanda",
           "price": "75.",
           "region": "이탈리아 > 아스티 > 피에몬테 | 바르베라 다스티100%",
           "desc_kor": "풍부한 붉은 과실과 바닐라, 스파이스의 조화가 매혹적인 바르베라. 부드러운 탄닌과 균형 잡힌 산미로 세련된 마무리를 선사하는 와인.",
@@ -179,7 +179,7 @@
         },
         {
           "kor": "도멘 파스칼 잔비에 꼬뜨 뒤 루아르 뀌베 앙리 꺄트",
-          "eng": "Pascal Janvier Coteaux du Loir Rouge Cuvee Henri Quatre",
+          "eng": "Pascal Janvier Coteaux du Loir Rouge Cuvée Henri Quatre",
           "price": "90.",
           "region": "프랑스 >루아르 > 꼬뜨 뒤 루아 | 카버네 프랑 40%, 가메 30%, 말벡 30%",
           "desc_kor": "검붉은 과실감, 바디감, 그리고 포도품종을 블랜딩하여 탄생하는 복합미를 즐길 수 있는 레드 와인.",
@@ -203,7 +203,7 @@
         },
         {
           "kor": "도멘 라 바로쉬 리버티",
-          "eng": "Domaine la Barroche \"Liberty\"",
+          "eng": "Domaine La Barroche \"Liberty\"",
           "price": "100.",
           "region": "프랑스 > 남부론 > 꼬뜨 뒤 론 | 그르나슈51%, 쌍소20%, 무흐베드흐13%, 시라11%, 까리냥5%",
           "desc_kor": "진한 블랙베리와 가죽 향, 깊이 있는 구조감과 균형미를 지닌 남프랑스산 풀바디 레드 와인.",
@@ -211,7 +211,7 @@
         },
         {
           "kor": "카멜로드 몬터레이 피노누아",
-          "eng": "Carmel road Monterey Pinot Noir",
+          "eng": "Carmel Road Monterey Pinot Noir",
           "price": "100.",
           "region": "미국 > 캘리포니아 > 몬터레이 | 피노누아100%",
           "desc_kor": "부드러운 라즈베리와 체리 향에 은은한 삼나무 뉘앙스가 감도는, 캘리포니아 스타일의 실키한 피노 누아.",
@@ -267,7 +267,7 @@
         },
         {
           "kor": "도멘 이자벨 리페 지브리 샹베르땡 샴",
-          "eng": "Domaine Isabelle Lippe Gevrey Chambertin Champ",
+          "eng": "Domaine Isabelle Lippe Gevrey-Chambertin Champ",
           "price": "220.",
           "region": "프랑스 > 부르고뉴 > 꼬뜨 드 뉘 | 피노누아100%",
           "desc_kor": "진한 블랙 체리와 가죽, 삼나무 향이 중후하게 펼쳐지는 정제된 쥬브레 샹베르탱. 숙성 잠재력도 뛰어난 와인.",
@@ -287,7 +287,7 @@
           "price": "590.",
           "region": "프랑스 > 부르고뉴 > 프리미에 크뤼 | 피노누아100%",
           "desc_kor": "집중도 있는 과실 표현력, 샹볼 뮤지니 마을 고유의 숲 뉘앙스, 그리고 입안에서 복합미를 여지없이 느낄 수 있는 와인.",
-          "desc_eng": "A wine that offers focused fruit expression, the distinctive forest nuances of the village of Chambolle-Musigny, and a complexity that is unmistakably evident on the palate"
+          "desc_eng": "A wine that offers focused fruit expression, the distinctive forest nuances of the village of Chambolle-Musigny, and a complexity that is unmistakably evident on the palate."
         }
       ]
     },
@@ -296,7 +296,7 @@
       "items": [
         {
           "kor": "구스타브 로렌츠 크레망 알자스 브뤼",
-          "eng": "Gustave Lorentz Cremant d'Alsace Brut",
+          "eng": "Gustave Lorentz Crémant d'Alsace Brut",
           "price": "80.",
           "region": "프랑스 > 알자스 | 샤르도네33.3%, 피노누아33.3%, 피노블랑 33.3%",
           "desc_kor": "잘 익은 사과와 흰 꽃 향, 미세한 버블과 산뜻한 산미가 어우러져 가볍고 세련된 알자스 크레망.",
@@ -360,7 +360,7 @@
         },
         {
           "kor": "샴페인 빌꺄르 살몽 르 리저브",
-          "eng": "Champagne Billecart Salmon Le Reserve",
+          "eng": "Champagne Billecart-Salmon Le Réserve",
           "price": "220.",
           "region": "프랑스 > 샹파뉴 | 뫼니에43%, 샤르도네29%, 피노누아28%",
           "desc_kor": "은은한 꽃향기와 잘 익은 복숭아, 브리오슈의 향이 어우러진 고급스럽고 세련된 스타일의 샴페인.",
@@ -368,7 +368,7 @@
         },
         {
           "kor": "샴페인 필립포나 리저브 브뤼",
-          "eng": "Champagne Philipponnat Reserve Brut",
+          "eng": "Champagne Philipponnat Réserve Brut",
           "price": "240.",
           "region": "프랑스 > 샹파뉴 | 피노누아65%, 샤르도네30%, 피노 뫼니에5%",
           "desc_kor": "깊이 있는 사과와 브리오슈 향, 미세한 버블과 절묘한 밸런스를 자랑하는 전통의 샴페인 하우스 와인.",
@@ -376,11 +376,11 @@
         },
         {
           "kor": "돔 페리뇽",
-          "eng": "Dom Perignon",
+          "eng": "Dom Pérignon",
           "price": "580.",
           "region": "프랑스 > 샹파뉴 | 샤르도네50%, 피노누아50%",
           "desc_kor": "주로 피노 누아와 샤르도네 두 가지 포도로만 만든 빈티지 샴페인으로, 피노 누아가 바디와 풍미를, 샤르도네가 신선함과 우아함을 책임지는 와인.",
-          "desc_eng": "It is a vintage champagne made mainly from two grape varieties, Pinot Noir and Chardonnay, where Pinot Noir provides body and flavor, and Chardonnay delivers freshness and elegance."
+          "desc_eng": "A vintage Champagne made mainly from two grape varieties, Pinot Noir and Chardonnay, where Pinot Noir provides body and flavor, and Chardonnay delivers freshness and elegance."
         },
         {
           "kor": "샴페인 파이퍼 하이직 레어",

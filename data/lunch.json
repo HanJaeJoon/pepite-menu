@@ -44,7 +44,7 @@
           "eng": "Aged Amberjack Ceviche",
           "price": "32.",
           "desc_kor": "숙성한 잿방어, 로메스코소스, 토마토폼, 허브오일, 펜넬피클, 레몬겔",
-          "desc_eng": "Yellowtail, aged, romesco, tomato foam, herb oil, fennel pickle, lemon gel"
+          "desc_eng": "Amberjack, aged, romesco, tomato foam, herb oil, fennel pickle, lemon gel"
         }
       ]
     },
@@ -134,7 +134,7 @@
           "eng": "Mascarpone Cream & Vanilla Ice Cream",
           "price": "13.",
           "desc_kor": "마스카포네크림, 코코아크럼블, 그래놀라, 아이스크림",
-          "desc_eng": "Mascarpone Cream, cocoa crumble, granola, ice cream"
+          "desc_eng": "Mascarpone cream, cocoa crumble, granola, ice cream"
         },
         {
           "kor": "자몽 타르틀렛 (2pieces)",
@@ -162,14 +162,14 @@
       "items": [
         {
           "kor": "아메리카노 / 아이스아메리카노",
-          "eng": "Americano / Ice Americano",
+          "eng": "Americano / Iced Americano",
           "price": "5.",
           "desc_kor": "",
           "desc_eng": ""
         },
         {
           "kor": "카모마일 티 (Hot)",
-          "eng": "Chamomile(HOT)",
+          "eng": "Chamomile Tea (Hot)",
           "price": "4.",
           "desc_kor": "",
           "desc_eng": ""

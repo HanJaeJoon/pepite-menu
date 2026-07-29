@@ -140,7 +140,7 @@
       "items": [
         {
           "kor": "네기토로마키 (8 pieces)",
-          "eng": "Negitoro Maki",
+          "eng": "Negitoro Maki (8 pieces)",
           "price": "32.",
           "desc_kor": "참다랑어 뱃살에 알싸한 대파 함께 다져 넣어 말은 김초밥",
           "desc_eng": "Fatty tuna belly, green onion, sushi roll"
@@ -176,7 +176,7 @@
           "eng": "Red Prawn, Olive Skewer",
           "price": "20.",
           "desc_kor": "숯불에 구워 깊은 풍미를 더한 홍새우와 마리네이드 올리브를 꼬치",
-          "desc_eng": "Skewered red prawn grilled over charcoal, served with marinated olives."
+          "desc_eng": "Skewered red prawn grilled over charcoal, served with marinated olives"
         },
         {
           "kor": "깔라마리",
@@ -202,7 +202,7 @@
           "eng": "Mascarpone Cream & Vanilla Ice Cream",
           "price": "13.",
           "desc_kor": "마스카포네크림, 코코아크럼블, 그래놀라, 아이스크림",
-          "desc_eng": "mascarpone cream, cocoa crumble, granola, ice cream"
+          "desc_eng": "Mascarpone cream, cocoa crumble, granola, ice cream"
         },
         {
           "kor": "자몽 타르틀렛 (2pieces)",
