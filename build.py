@@ -73,13 +73,14 @@ STYLE = {
 }
 
 # 와인은 항목 수가 많아 본문보다 한 단계 작게 (원본 와인 메뉴판과 비슷한 밀도)
+# 한글명은 설명과 같은 크기로 두고 굵기로만 구분한다 (2026-07-29 요청).
 WINE_STYLE = {
-    'name_size': 9,
+    'name_size': 8,     # = desc_size. 크기가 아니라 bold 로 제목임을 표시
     'engname_size': 8,
     'region_size': 7,
     'desc_size': 8,
     'price_size': 9.5,
-    'item_gap': 8,      # 와인 한 줄 높이와 비슷한 값. PAGES 의 분할점과 함께 맞춰짐
+    'item_gap': 18,     # 와인 사이를 한 줄 띄운다 (줄높이 약 10pt + 기존 8pt)
 }
 
 # 페이지 구성. 리스트 하나 = 한 페이지.
@@ -110,12 +111,14 @@ PAGES = {
     # 새 페이지를 시작하면 두 번째 페이지가 반쯤 비므로(이전 구성이 그랬다),
     # 섹션을 페이지 사이로 이어 흘리고 끊는 위치를 여기에 명시한다.
     # 덕분에 앞쪽에 한 종을 추가해도 뒤 페이지가 밀리지 않는다.
+    # 와인 사이를 한 줄 띄우면서(item_gap 18) 5페이지에 안 들어가 6페이지로 늘렸다.
     'wine': [
-        [('WHITE WINE', 0, 10)],
-        [('WHITE WINE', 10, None, False)],
-        [('RED WINE', 0, 10)],
-        [('RED WINE', 10, None, False), ('SPARKLING WINE', 0, 4)],
-        [('SPARKLING WINE', 4, None, False), 'HOUSE WINE'],
+        [('WHITE WINE', 0, 8)],
+        [('WHITE WINE', 8, 16, False)],
+        [('WHITE WINE', 16, None, False), ('RED WINE', 0, 4)],
+        [('RED WINE', 4, 13, False)],
+        [('RED WINE', 13, None, False), ('SPARKLING WINE', 0, 5)],
+        [('SPARKLING WINE', 5, None, False), 'HOUSE WINE'],
     ],
 }
 
@@ -123,6 +126,12 @@ PAGES = {
 # 같은 페이지에 두 섹션이 붙어 있을 때 사이를 더 벌리는 용도.
 SECTION_GAP_BEFORE = {
     ('food', 'MEAL'): 26,     # MAIN 과 MEAL 사이를 한 줄 더 띄운다
+}
+
+# 영문 설명만 한글 설명보다 한 단계 작게 쓰는 메뉴판. 지정이 없으면 desc_size.
+# 요리 메뉴판은 영문명(9pt bold)과 영문 설명이 같은 크기여서 구분이 약했다.
+DESC_ENG_SIZE = {
+    'food': 8,
 }
 
 
@@ -313,6 +322,7 @@ def price_cell(cell, price, size=None, note=None):
 def build_dish(key, out_name):
     data = json.load(open(os.path.join(DATA, key + '.json'), encoding='utf-8'))
     by_name = {s['name']: s for s in data['sections']}
+    desc_eng_size = DESC_ENG_SIZE.get(key, STYLE['desc_size'])
     doc = new_doc()
 
     for pi, page in enumerate(PAGES[key]):
@@ -339,7 +349,7 @@ def build_dish(key, out_name):
                          size=STYLE['desc_size'], after=1)
                 if it['desc_eng']:
                     line(c, it['desc_eng'], font=STYLE['font_eng'],
-                         size=STYLE['desc_size'], color=STYLE['gray'])
+                         size=desc_eng_size, color=STYLE['gray'])
                 c.paragraphs[-1].paragraph_format.space_after = Pt(gap)
                 price_cell(row.cells[1], it['price'], note=it.get('price_note'))
 
@@ -392,7 +402,8 @@ def build_course(out_name):
     s = doc.sections[0]
     s.page_width, s.page_height = Cm(14.8), Cm(21.0)     # A5
     s.left_margin = s.right_margin = Cm(1.6)
-    s.top_margin = s.bottom_margin = Cm(1.4)
+    # 섹션 사이를 한 줄 더 띄우면서 마지막 줄이 2페이지로 넘어가 1.4 -> 1.2 로 줄였다
+    s.top_margin = s.bottom_margin = Cm(1.2)
     n = doc.styles['Normal']
     n.font.name = STYLE['font_kor']
     n.element.rPr.rFonts.set(qn('w:eastAsia'), STYLE['font_kor'])
@@ -416,10 +427,12 @@ def build_course(out_name):
                     bold=bold, color=color, eastasia=ea)
         return p
 
-    t = put(data['title'], 20, font=STYLE['font_head'], after=2, color=STYLE['logo'])
+    # PÉPITE / LUNCH SET MENU 를 한 덩어리로 보고 가로선은 그 아래에 둔다
+    put(data['title'], 20, font=STYLE['font_head'], after=2, color=STYLE['logo'])
+    sub = put(data['subtitle'], 12, font=STYLE['font_head'], after=6,
+              color=STYLE['logo'])
     if STYLE['rule_under_title']:
-        bottom_rule(t)
-    put(data['subtitle'], 12, font=STYLE['font_head'], after=6, color=STYLE['logo'])
+        bottom_rule(sub)
 
     for ln in data['lines']:
         # ["식전 빵", "(빵 추가 2pcs 3.)"] 처럼 리스트면 뒷부분을 작은 글씨로 붙인다
@@ -427,7 +440,8 @@ def build_course(out_name):
         if isinstance(ln, list):
             ln, small = ln[0], ln[1]
         if ln in heads:
-            put(ln, 12, font=STYLE['font_head'], before=12, after=6)
+            # 코스 섹션 사이는 한 줄 더 띄운다 (2026-07-29 요청). 12 -> 26
+            put(ln, 12, font=STYLE['font_head'], before=26, after=6)
         elif ln == 'or':
             put('or', 8, color=STYLE['gray'], before=1, after=1)
         elif ln.startswith('98,000'):
