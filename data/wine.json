@@ -1,0 +1,417 @@
+{
+  "title": "PÉPITE WINE",
+  "sections": [
+    {
+      "name": "WHITE WINE",
+      "items": [
+        {
+          "kor": "제나토 소아베 클라시코",
+          "eng": "Zenato Soave Classico",
+          "price": "70.",
+          "region": "이탈리아 > 베네토 > 소아베 클라시코 | 가르가네가 70%, 샤르도네 30%",
+          "desc_kor": "사과와 노란 자두, 복숭아의 신선한 과실향이 크리스피한 산도와 어우러지며, 경쾌하고 생기 있는 풍미로 식전주로 완벽한 와인.",
+          "desc_eng": "Fresh aromas of apple, yellow plum, and peach with crisp acidity, offering a lively finish - perfect as an aperitif."
+        },
+        {
+          "kor": "올드 소울 샤르도네",
+          "eng": "Old Soul Chardonnay",
+          "price": "75.",
+          "region": "미국 > 캘리포니아 > 로다이 | 샤르도네 95%, 소비뇽 블랑 5%",
+          "desc_kor": "열대 과일과 바닐라 노트가 부드럽게 펼쳐지며, 오크 숙성이 부드럽고 고급스러운 마무리를 선사하는 와인.",
+          "desc_eng": "A wine where tropical fruit and vanilla notes unfold smoothly, with oak aging delivering a soft and elegant finish."
+        },
+        {
+          "kor": "인비보 소비뇽 블랑",
+          "eng": "Invivo Sauvignon Blanc",
+          "price": "80.",
+          "region": "뉴질랜드 > 말버러 | 소비뇽 블랑100%",
+          "desc_kor": "라임과 구즈베리 향이 인상적인 생동감 넘치는 와인으로, 상쾌한 산미와 허브 노트가 조화를 이루는 와인.",
+          "desc_eng": "A vibrant wine with striking aromas of lime and gooseberry, where zesty acidity and herbal notes come together in perfect harmony."
+        },
+        {
+          "kor": "도멘 장크리스토프 만다르 뚜렌 소비뇽 블랑",
+          "eng": "Jean-Christophe Mandard Touraine Sauvignon",
+          "price": "85.",
+          "region": "프랑스 > 루아르 밸리 > 뚜렌 | 소비뇽 블랑100%",
+          "desc_kor": "허브와 감귤 향이 섬세하게 어우러진 루아르 스타일의 와인으로, 우아하면서도 깔끔한 피니시가 돋보이는 와인.",
+          "desc_eng": "A Loire-style wine delicately infused with herbal and citrus aromas, featuring an elegant character and a clean, refined finish."
+        },
+        {
+          "kor": "도멘 데 디오니소스 비오니에 뀌베 클레멘타인",
+          "eng": "Domaine de Dionysos Viognier Cuvee Clementine",
+          "price": "90.",
+          "region": "프랑스 > 남부론 > 께한 | 비오니에100%",
+          "desc_kor": "백도와 흰 꽃 향이 우아하게 펼쳐지는 아로마틱 화이트 와인으로, 부드러운 질감과 은은한 향신료의 여운이 고급스러운 와인.",
+          "desc_eng": "An aromatic white wine with elegant notes of white peach and white flowers, offering a smooth texture and a refined finish with subtle spicy undertones."
+        },
+        {
+          "kor": "슈엔하이츠 뮈스까",
+          "eng": "Schoenheitz Muscat",
+          "price": "95.",
+          "region": "프랑스 > 알자스 > Wihr-Au-Val | 머스켓100%",
+          "desc_kor": "경사가 가파른 포도밭에서 자라난 뮈스까 포도품종으로 만들어진 와인으로 화려한 꽃향이 신선한 과실향이 집중도 있게 펼쳐지면 은은한 산도와 미네랄이 다양한 음식과 조화를 잘 이루는 화이트 와인 와인.",
+          "desc_eng": "Made from Muscat grapes grown on steeply sloped vineyards, this white wine features concentrated, vibrant floral and fresh fruit aromas that unfold with depth, while its subtle acidity and minerality pair well with a variety of foods."
+        },
+        {
+          "kor": "도멘 콜로트 부르고뉴 블랑",
+          "eng": "Domaine Collotte Bourgogne Blanc",
+          "price": "100.",
+          "region": "프랑스 > 부르고뉴 막사네 & 픽상> 샤르도네100%",
+          "desc_kor": "잘 익은 백도와 시트러스의 신선한 향, 산뜻한 산미와 미네랄감이 어우러진 부르고뉴 스타일 화이트 와인.",
+          "desc_eng": "Fresh Burgundy white wine with ripe peach and citrus aromas, lively acidity, and a touch of minerality."
+        },
+        {
+          "kor": "이나마 빈 소아베",
+          "eng": "Inama Vin Soave Classico",
+          "price": "100.",
+          "region": "이탈리아 > 베네토 > 소아베 클라시코 | 가르가네가100%",
+          "desc_kor": "캐모마일과 흰 꽃 향이 우아하게 피어나며, 산뜻한 미네랄과 가르가네가 특유의 아몬드 여운이 돋보이는 와인.",
+          "desc_eng": "A wine with elegant aromas of chamomile and white flowers, highlighted by fresh minerality and the almond finish typical of Garganega."
+        },
+        {
+          "kor": "도멘 당트 샤블리 비에유 비뉴",
+          "eng": "Domaine DAMPT Chablis V.V",
+          "price": "110.",
+          "region": "프랑스 > 부르고뉴 > 샤블리 | 샤르도네100%",
+          "desc_kor": "묵직한 미네랄과 정제된 산미가 어우러진 깊이 있는 와인으로, 샤블리 특유의 청량함과 정제된 산도가 조화를 이루는 와인.",
+          "desc_eng": "A wine of depth, where pronounced minerality and refined acidity come together, showcasing the signature freshness and elegance of Chablis."
+        },
+        {
+          "kor": "슈엔하이츠 리즐링 \"헤렌헤벤\"",
+          "eng": "Schoenheitz Riesling \"Herrenheven\"",
+          "price": "120.",
+          "region": "독일 > 바덴 헤렌헤벤 | 리슬링100%",
+          "desc_kor": "은은한 꽃향기와 잘 익은 감귤류 아로마, 생동감 있는 산미와 미네랄이 조화를 이루는 우아한 리슬링.",
+          "desc_eng": "Elegant Riesling with subtle floral notes, ripe citrus aromas, lively acidity, and a mineral finish."
+        },
+        {
+          "kor": "리틀뷰티 소비뇽 블랑",
+          "eng": "Little Beauty Sauvignon Blanc",
+          "price": "120.",
+          "region": "뉴질랜드 > 말버러 | 소비뇽 블랑100%",
+          "desc_kor": "패션프루트와 자몽, 허브 향이 생동감 있게 어우러지며, 상쾌한 산미와 길고 조화로운 피니시가 돋보이는 와인.",
+          "desc_eng": "A vibrant wine combining passion fruit, grapefruit, and herbal aromas, with refreshing acidity and a long, harmonious finish."
+        },
+        {
+          "kor": "우나니메 샤르도네",
+          "eng": "Unanime Chardonnay",
+          "price": "120.",
+          "region": "아르헨티나 > 멘도사 | 샤르도네100%",
+          "desc_kor": "시트러스와 열대 과일 향에 은은한 바닐라 오크 터치가 더해져, 부드러운 질감과 신선한 산미가 조화를 이루는 와인.",
+          "desc_eng": "A wine where citrus and tropical fruit aromas meet a subtle touch of vanilla oak, balancing a smooth texture with fresh acidity."
+        },
+        {
+          "kor": "쇼 앤 스미스 엠쓰리 샤르도네",
+          "eng": "Shaw and Smith M3 Chardonnay",
+          "price": "130.",
+          "region": "호주 > 남호주 > 아들레이드 힐스 | 샤르도네100%",
+          "desc_kor": "복숭아와 시트러스 향에 세련된 오크 터치가 돋보이는 와인으로, 우아한 산도와 미묘한 너트 향이 긴 여운을 남기는 와인.",
+          "desc_eng": "A wine highlighted by peach and citrus aromas with a refined touch of oak, featuring elegant acidity and subtle nutty notes that linger on the finish."
+        },
+        {
+          "kor": "도멘 뒤 샤르도네, 샤블리 프리미에 크뤼",
+          "eng": "Domaine du Chardonnay Chablis 1er Cru",
+          "price": "150.",
+          "region": "프랑스 > 부르고뉴 > 샤블리 | 샤르도네100%",
+          "desc_kor": "꽃과 레몬 향이 어우러진 미네랄 노트, 실키한 질감과 우아한 신선함이 긴 여운으로 이어지는 프리미에 크뤼 샤블리 와인.",
+          "desc_eng": "A Premier Cru Chablis with mineral, floral, and lemony notes, offering a silky texture and elegant freshness on the finish."
+        },
+        {
+          "kor": "도멘 프랑수아 럼프 지브리 빌라쥐 블랑 떼프 데 쉐네브",
+          "eng": "Domaine Francois Lumpp Givry Blanc Teppe des Cheneves",
+          "price": "180.",
+          "region": "프랑스 > 브루고뉴 > 지브리 마을 | 샤르도네 100%",
+          "desc_kor": "떼프 데 쉐네브 포도밭의 샤르도네로 만들어진 화이트 와인으로 샤르도네의 고소한 뉘앙스 그리고 2022 빈티지의 집중도 있는 과실감이 잘 표현된 화이트 와인.",
+          "desc_eng": "A white wine made from Chardonnay grapes from the Téff de Chêneves vineyard, which beautifully captures the nutty nuances of Chardonnay and the concentrated fruitiness of the 2022 vintage."
+        },
+        {
+          "kor": "도멘 패트릭 자비에 사비니 레 본 블랑 \"레 몽쉐느부아\"",
+          "eng": "Domaine Patrick Javillier Savigny-les-Beaune Blanc \"Les Monts Cheneveux\"",
+          "price": "200.",
+          "region": "프랑스 > 부르고뉴 > 사비니 레본 | 샤르도네100%",
+          "desc_kor": "견과류와 흰 꽃 향이 고요하게 어우러지는 섬세한 부르고뉴 와인으로, 우아한 산도와 미묘한 너트 향이 긴 여운을 남기는 와인.",
+          "desc_eng": "A delicate Burgundy wine where nutty and white floral aromas blend serenely, showcasing elegant acidity and subtle nutty notes that linger on the finish."
+        },
+        {
+          "kor": "도멘 뱅상 & 프랑수아 주아 샤샤뉴 몽라쉐 프리미에 크뤼 \"라 말토아\"",
+          "eng": "Domaine Vincent & François Jouard Chassagne-Montrachet 1er Cru \"La Maltroie\"",
+          "price": "350.",
+          "region": "프랑스 > 부르고뉴 > 샤샤뉴 몽라셰 | 샤르도네100%",
+          "desc_kor": "풍성한 구조와 정제된 아로마가 조화를 이루는 최고 등급의 와인으로, 세련된 오크 노트와 정제된 과실 향이 완벽한 균형을 이루는 와인.",
+          "desc_eng": "A top-tier wine with a rich structure and refined aromas, perfectly balanced between elegant oak notes and polished fruit scents."
+        },
+        {
+          "kor": "도멘 샤비 슈에 뫼르소 프리미에 크뤼 레 쥬느브리에흐",
+          "eng": "Domaine Chavy-Chouet Meursault 1er Cru Les Genevrieres",
+          "price": "590.",
+          "region": "프랑스 > 뫼르소 | 샤르도네100%",
+          "desc_kor": "프리미에 크뤼 포도밭으로 헤이즐넛, 화이트 플라워, 주니퍼 베리의 아로마와 입안에서 우아한 산도와 풍부한 미네랄 뉘앙스를 표현하는 와인.",
+          "desc_eng": "A wine from a Premier Cru vineyard that expresses aromas of hazelnut, white flowers, and juniper berries, with elegant acidity and rich mineral nuances on the palate."
+        },
+        {
+          "kor": "도멘 패트릭 자비에 꼬르똥 샤를마뉴 그랑 크뤼",
+          "eng": "Domaine Patrick Javillier Corton-Charlemagne Grand Cru",
+          "price": "1,000.",
+          "region": "프랑스 > 부르고뉴 > 코트 드 본 | 샤르도네100%",
+          "desc_kor": "싱그러운 사과 & 살구, 고소한 헤이즐넛 & 월넛 아로마와 풍부한 질감 그리고 끊임없이 이어지는 산도를 잘 표현한 와인.",
+          "desc_eng": "A wine expressing aromas of hazelnut, white flowers, and juniper berry, with elegant acidity and rich mineral nuances on the palate."
+        }
+      ]
+    },
+    {
+      "name": "RED WINE",
+      "items": [
+        {
+          "kor": "벨 꼴레 바르베라 다스티 수페리오레 DOCG 누완다",
+          "eng": "Bel Colle Barbera dAsti Superiore Nuwanda",
+          "price": "75.",
+          "region": "이탈리아 > 아스티 > 피에몬테 | 바르베라 다스티100%",
+          "desc_kor": "풍부한 붉은 과실과 바닐라, 스파이스의 조화가 매혹적인 바르베라. 부드러운 탄닌과 균형 잡힌 산미로 세련된 마무리를 선사하는 와인.",
+          "desc_eng": "Barbera captivates with a rich harmony of red fruits, vanilla, and spices, delivering a refined finish with smooth tannins and balanced acidity."
+        },
+        {
+          "kor": "올드 소울 카버네 소비뇽",
+          "eng": "Old Soul Cabernet Sauvignon",
+          "price": "80.",
+          "region": "미국 > 캘리포니아 > 로다이 | 카버네 소비뇽84%, 쁘띠 시라7%, 말벡5%, 쁘띠 베르도4%",
+          "desc_kor": "검붉은 과실과 토스티한 오크 향이 조화를 이루며, 둥글고 진한 구조감으로 깊은 인상을 남기는 캘리포니아 카버네.",
+          "desc_eng": "California Cabernet blends dark red fruit and toasty oak aromas, leaving a deep impression with its rounded, rich structure."
+        },
+        {
+          "kor": "도멘 파스칼 잔비에 꼬뜨 뒤 루아르 뀌베 앙리 꺄트",
+          "eng": "Pascal Janvier Coteaux du Loir Rouge Cuvee Henri Quatre",
+          "price": "90.",
+          "region": "프랑스 >루아르 > 꼬뜨 뒤 루아 | 카버네 프랑 40%, 가메 30%, 말벡 30%",
+          "desc_kor": "검붉은 과실감, 바디감, 그리고 포도품종을 블랜딩하여 탄생하는 복합미를 즐길 수 있는 레드 와인.",
+          "desc_eng": "A red wine that offers a rich, dark-red fruitiness, full body, and the complex flavors resulting from a blend of grape varieties."
+        },
+        {
+          "kor": "빌라 안티노리 키안티 클라시코 리제르바",
+          "eng": "Villa Antinori Chianti Classico Riserva",
+          "price": "90.",
+          "region": "이탈리아 > 토스카나 > 끼안티 클라시코 | 산지오베제90%, 카버네 소비뇽10%",
+          "desc_kor": "체리와 자두 향에 오크와 타박 향이 어우러진 전통적 토스카나 와인. 탄탄한 구조와 긴 여운이 돋보이는 리제르바.",
+          "desc_eng": "A traditional Tuscan wine with aromas of cherry and plum intertwined with oak and tobacco notes. This Riserva stands out for its solid structure and long-lasting finish."
+        },
+        {
+          "kor": "비에티 랑게 네비올로",
+          "eng": "Vietti Langhe Nebbiolo Perbacco",
+          "price": "100.",
+          "region": "이탈리아 > 피에몬테 | 네비올로100%",
+          "desc_kor": "신선한 장미와 체리 아로마에 섬세한 탄닌과 미네랄 터치가 어우러진 우아한 네비올로 와인.",
+          "desc_eng": "An elegant Nebbiolo wine featuring fresh rose and cherry aromas, complemented by delicate tannins and a mineral touch."
+        },
+        {
+          "kor": "도멘 라 바로쉬 리버티",
+          "eng": "Domaine la Barroche \"Liberty\"",
+          "price": "100.",
+          "region": "프랑스 > 남부론 > 꼬뜨 뒤 론 | 그르나슈51%, 쌍소20%, 무흐베드흐13%, 시라11%, 까리냥5%",
+          "desc_kor": "진한 블랙베리와 가죽 향, 깊이 있는 구조감과 균형미를 지닌 남프랑스산 풀바디 레드 와인.",
+          "desc_eng": "A full-bodied red wine from Southern France, characterized by intense blackberry and leather aromas, with a deep structure and well-balanced profile."
+        },
+        {
+          "kor": "카멜로드 몬터레이 피노누아",
+          "eng": "Carmel road Monterey Pinot Noir",
+          "price": "100.",
+          "region": "미국 > 캘리포니아 > 몬터레이 | 피노누아100%",
+          "desc_kor": "부드러운 라즈베리와 체리 향에 은은한 삼나무 뉘앙스가 감도는, 캘리포니아 스타일의 실키한 피노 누아.",
+          "desc_eng": "A silky California-style Pinot Noir with soft raspberry and cherry aromas, subtly infused with cedar nuances."
+        },
+        {
+          "kor": "우나니메 말벡",
+          "eng": "Unanime Malbec",
+          "price": "120.",
+          "region": "아르헨티나 > 멘도사 | 말벡100%",
+          "desc_kor": "짙은 과실향과 초콜릿, 스파이스 노트가 어우러지며 부드러운 질감과 긴 피니시를 자랑하는 풍성한 말벡.",
+          "desc_eng": "A rich Malbec blending intense fruit aromas with notes of chocolate and spices, boasting a smooth texture and a long finish."
+        },
+        {
+          "kor": "도멘 폴 프리외르 상세르 루즈",
+          "eng": "Domaine Paul Prieur Sancerre Rouge",
+          "price": "140.",
+          "region": "프랑스 > 루아르 > 상세르 | 피노누아 100%",
+          "desc_kor": "싱그러운 붉은 과일이 예쁘게 피어오르며, 입안에서 은은한 질감 그리고 마신 후 긴 피니쉬를 즐길 수 있는 와인.",
+          "desc_eng": "A wine with vibrant red fruit notes that beautifully unfold, offering a subtle texture on the palate and a long finish."
+        },
+        {
+          "kor": "마리-네지 & 띠에리 글란트니 부르고뉴 꼬뜨 도르 피노누아",
+          "eng": "Marie-Neige & Thierry Glantenay Bourgogne Côte d'Or Pinot Noir",
+          "price": "160.",
+          "region": "프랑스 > 부르고뉴 > 꼬뜨 도르 | 피노누아100%",
+          "desc_kor": "우아하고 정교한 레드 와인으로 유기농 방식으로 재배된 오래된 피노 누아 포도나무에서 수확한 포도를 사용하여, 전통적인 방식으로 양조된 와인.",
+          "desc_eng": "An elegant and refined red wine crafted using grapes harvested from old Pinot Noir vines grown organically, and produced through traditional winemaking methods."
+        },
+        {
+          "kor": "도멘 프랑수아 & 드니 클레어 상뜨네 빌라쥐 루즈 \"끌로 제네트\"",
+          "eng": "François & Denis Clair Santenay \"Clos Genet\"",
+          "price": "170.",
+          "region": "프랑스 > 부르고뉴 > 상뜨네 | 피노누아100%",
+          "desc_kor": "잘 익은 붉은 과실과 삼나무, 흙내음이 고급스럽게 조화를 이루며 섬세한 구조와 생동감 있는 산미를 갖춘 와인.",
+          "desc_eng": "A wine that elegantly harmonizes ripe red fruits, cedar, and earthy aromas, featuring a delicate structure and vibrant acidity."
+        },
+        {
+          "kor": "도멘 패트릭 자비에 사비니 레 본 루즈 레 그랑 리야드",
+          "eng": "Domaine Patrick Javillier Savigny-lès-Beaune Rouge \"Les Grands Liards\"",
+          "price": "180.",
+          "region": "프랑스 > 부르고뉴 | 피노누아100%",
+          "desc_kor": "섬세한 체리와 붉은 과실 향, 부드러운 탄닌과 균형 잡힌 산미가 조화를 이루는 우아한 피노 누아.",
+          "desc_eng": "Elegant Pinot Noir with delicate cherry and red fruit aromas, soft tannins, and balanced acidity."
+        },
+        {
+          "kor": "비에티 바롤로 카스틸리오네",
+          "eng": "Vietti Barolo Castiglione",
+          "price": "190.",
+          "region": "이탈리아 > 피에몬테 | 네비올로100%",
+          "desc_kor": "장미, 타르, 체리의 아로마가 복합적으로 피어나며, 강건한 탄닌과 오랜 숙성 잠재력을 지닌 클래식 바롤로.",
+          "desc_eng": "A classic Barolo with complex aromas of rose, tar, and cherry, featuring robust tannins and excellent aging potential."
+        },
+        {
+          "kor": "도멘 이자벨 리페 지브리 샹베르땡 샴",
+          "eng": "Domaine Isabelle Lippe Gevrey Chambertin Champ",
+          "price": "220.",
+          "region": "프랑스 > 부르고뉴 > 꼬뜨 드 뉘 | 피노누아100%",
+          "desc_kor": "진한 블랙 체리와 가죽, 삼나무 향이 중후하게 펼쳐지는 정제된 쥬브레 샹베르탱. 숙성 잠재력도 뛰어난 와인.",
+          "desc_eng": "A refined Gevrey-Chambertin with deep aromas of black cherry, leather, and cedar, offering a rich presence and excellent aging potential."
+        },
+        {
+          "kor": "도멘 샤비 슈에 뽀마르 프리미에 크뤼 \"레 산랑\"",
+          "eng": "Domaine Chavy-Chouet Pommard 1er Cru \"Les Chanlins\"",
+          "price": "380.",
+          "region": "프랑스 > 부르고뉴 > 뽀마르 | 피노누아100%",
+          "desc_kor": "검붉은 베리와 스파이스, 땅내음이 복합적으로 어우러진 클래식 부르고뉴 피노 누아. 깊이와 구조가 뛰어나며 단일밭에서 재배된 피노누아로 만들어진 와인.",
+          "desc_eng": "A classic Burgundy Pinot Noir featuring a complex blend of dark berries, spices, and earthy notes. This wine, made from single-vineyard Pinot Noir grapes, boasts exceptional depth and structure."
+        },
+        {
+          "kor": "도멘 가쇼 모노 샹볼 뮈지니 프리미에 크뤼 \"레 꼼보트\"",
+          "eng": "Domaine Gachot-Monot Chambolle-Musigny 1er Cru Les Combottes",
+          "price": "590.",
+          "region": "프랑스 > 부르고뉴 > 프리미에 크뤼 | 피노누아100%",
+          "desc_kor": "집중도 있는 과실 표현력, 샹볼 뮤지니 마을 고유의 숲 뉘앙스, 그리고 입안에서 복합미를 여지없이 느낄 수 있는 와인.",
+          "desc_eng": "A wine that offers focused fruit expression, the distinctive forest nuances of the village of Chambolle-Musigny, and a complexity that is unmistakably evident on the palate"
+        }
+      ]
+    },
+    {
+      "name": "SPARKLING WINE",
+      "items": [
+        {
+          "kor": "구스타브 로렌츠 크레망 알자스 브뤼",
+          "eng": "Gustave Lorentz Cremant d'Alsace Brut",
+          "price": "80.",
+          "region": "프랑스 > 알자스 | 샤르도네33.3%, 피노누아33.3%, 피노블랑 33.3%",
+          "desc_kor": "잘 익은 사과와 흰 꽃 향, 미세한 버블과 산뜻한 산미가 어우러져 가볍고 세련된 알자스 크레망.",
+          "desc_eng": "A light and elegant Alsace Crémant combining ripe apple and white floral aromas with fine bubbles and refreshing acidity."
+        },
+        {
+          "kor": "르 쁘띠 에뚜알 오가닉 샤르도네 (스파클링/논알콜)",
+          "eng": "Le Petit Étoile Organic Chardonnay (Sparkling / Non-Alcoholic)",
+          "price": "80.",
+          "region": "프랑스 > 남 프랑스 | 샤르도네 100%",
+          "desc_kor": "르 쁘띠 에뚜알은 작은 별 이라는 뜻으로, 이 무알콜 와인의 작고 섬세한 버블을 연상케 한다.",
+          "desc_eng": "\"Le Petit Étoile\" means \"little star,\" evoking the small, delicate bubbles in this non-alcoholic wine."
+        },
+        {
+          "kor": "비에티 모스카토 다스티",
+          "eng": "Vietti Moscato d'Asti",
+          "price": "90.",
+          "region": "이탈리아 > 피에몬테 | 모스카토100%",
+          "desc_kor": "풍부한 머스캣 아로마와 부드러운 단맛, 산뜻한 기포가 어우러진 상큼하고 우아한 디저트 스파클링 와인",
+          "desc_eng": "A fresh and elegant dessert sparkling wine featuring rich muscat aromas, a smooth sweetness, and lively bubbles."
+        },
+        {
+          "kor": "후베 깜프스 레세르바 데 라 파밀리아",
+          "eng": "Juvé & Camps Reserva de la Familia",
+          "price": "95.",
+          "region": "스페인 > 페네데스 | 마카베오45%, 파렐라다30%, 샤렐로25%",
+          "desc_kor": "견과류와 구운 브리오슈 향, 크리미한 텍스처와 복합적인 풍미가 뛰어난 고급 까바.",
+          "desc_eng": "A premium Cava with aromas of nuts and toasted brioche, offering a creamy texture and complex flavors."
+        },
+        {
+          "kor": "슈엔하이츠 크레망 달자스 메모아 데 그레닛 NV",
+          "eng": "Schoenheitz Crémant d'Alsace Mémoire des Granites NV",
+          "price": "110.",
+          "region": "프랑스 > 알자스 | 피노블랑50%, 오세루아30%, 피노그리20%",
+          "desc_kor": "피노 옥세루아와 피노 누아 블렌딩, 61개월 병입 숙성. 부드러운 버블과 과실미, 풍부한 미네랄과 산도가 조화를 이루는 크레망.",
+          "desc_eng": "A blend of Pinot Auxerrois and Pinot Noir, aged 61 months on lees. Fine bubbles, vibrant fruit, and a balanced minerality and acidity."
+        },
+        {
+          "kor": "샴페인 알베르 르브랭 블랑 드 누아",
+          "eng": "Champagne Albert Lebrun Blanc de Noirs",
+          "price": "120.",
+          "region": "프랑스 > 샹파뉴 | 피노 뫼니에100%",
+          "desc_kor": "풍부한 붉은 과실과 토스티한 브리오슈 향이 조화를 이루며, 구조감과 긴 여운이 뛰어난 블랑 드 누아 샴페인.",
+          "desc_eng": "A Blanc de Noirs Champagne harmoniously blending rich red fruit and toasty brioche aromas, distinguished by its strong structure and long finish."
+        },
+        {
+          "kor": "까델 보스코 프란치아코르타 퀴베 엑스트라 브뤼",
+          "eng": "Ca' del Bosco Cuvée Prestige Extra Brut",
+          "price": "130.",
+          "region": "이탈리아 > 프란치아코르타 | 샤르도네75%, 피노 비앙코10%, 피노 네로15%",
+          "desc_kor": "잘 익은 복숭아와 구운 견과의 아로마, 풍성한 텍스처와 정교한 산미가 특징인 이탈리아 대표 프리미엄 스파클링.",
+          "desc_eng": "A premium Italian sparkling wine characterized by ripe peach and toasted nut aromas, rich texture, and refined acidity."
+        },
+        {
+          "kor": "샴페인 파이퍼 하이직 에센셜 브뤼",
+          "eng": "Champagne Piper-Heidsieck Essentiel Brut",
+          "price": "190.",
+          "region": "프랑스 > 샹파뉴 | 피노누아50%, 샤르도네30%, 피노 뫼니에20%",
+          "desc_kor": "신선한 과일과 토스트 향의 균형이 잘 잡힌 스타일리시한 샴페인으로, 깔끔하면서도 우아한 피니시.",
+          "desc_eng": "A stylish Champagne with a well-balanced harmony of fresh fruit and toasty notes, delivering a clean and elegant finish."
+        },
+        {
+          "kor": "샴페인 빌꺄르 살몽 르 리저브",
+          "eng": "Champagne Billecart Salmon Le Reserve",
+          "price": "220.",
+          "region": "프랑스 > 샹파뉴 | 뫼니에43%, 샤르도네29%, 피노누아28%",
+          "desc_kor": "은은한 꽃향기와 잘 익은 복숭아, 브리오슈의 향이 어우러진 고급스럽고 세련된 스타일의 샴페인.",
+          "desc_eng": "A luxurious and refined Champagne blending subtle floral aromas with ripe peach and brioche notes."
+        },
+        {
+          "kor": "샴페인 필립포나 리저브 브뤼",
+          "eng": "Champagne Philipponnat Reserve Brut",
+          "price": "240.",
+          "region": "프랑스 > 샹파뉴 | 피노누아65%, 샤르도네30%, 피노 뫼니에5%",
+          "desc_kor": "깊이 있는 사과와 브리오슈 향, 미세한 버블과 절묘한 밸런스를 자랑하는 전통의 샴페인 하우스 와인.",
+          "desc_eng": "A traditional Champagne house wine boasting deep apple and brioche aromas, fine bubbles, and exquisite balance."
+        },
+        {
+          "kor": "돔 페리뇽",
+          "eng": "Dom Perignon",
+          "price": "580.",
+          "region": "프랑스 > 샹파뉴 | 샤르도네50%, 피노누아50%",
+          "desc_kor": "주로 피노 누아와 샤르도네 두 가지 포도로만 만든 빈티지 샴페인으로, 피노 누아가 바디와 풍미를, 샤르도네가 신선함과 우아함을 책임지는 와인.",
+          "desc_eng": "It is a vintage champagne made mainly from two grape varieties, Pinot Noir and Chardonnay, where Pinot Noir provides body and flavor, and Chardonnay delivers freshness and elegance."
+        },
+        {
+          "kor": "샴페인 파이퍼 하이직 레어",
+          "eng": "Champagne Piper-Heidsieck Rare",
+          "price": "650.",
+          "region": "프랑스 > 샹파뉴 | 샤르도네70%, 피노누아30%",
+          "desc_kor": "파인애플, 스파이스, 견과류의 아로마와 크리미한 텍스처가 조화를 이루며, 긴 숙성감과 우아함이 돋보이는 최고급 샴페인.",
+          "desc_eng": "A top-tier Champagne featuring aromas of pineapple, spice, and nuts, harmonized with a creamy texture, showcasing extended aging and elegant sophistication."
+        },
+        {
+          "kor": "크룩 그랑 퀴베",
+          "eng": "Krug Grande Cuvée",
+          "price": "680.",
+          "region": "프랑스 > 샹파뉴 크룩 | 피노누아45%, 샤르도네39%, 피노 뫼니에 16%",
+          "desc_kor": "풍부한 구운 브리오슈와 견과류, 잘 익은 과실의 복합적인 향, 길고 우아한 피니시가 돋보이는 최고급 샴페인.",
+          "desc_eng": "Prestigious Champagne with complex aromas of brioche, nuts, and ripe fruits, offering richness, elegance, and a long refined finish."
+        }
+      ]
+    },
+    {
+      "name": "HOUSE WINE",
+      "items": [
+        {
+          "kor": "오늘의 하우스 와인",
+          "eng": "House Wine of the Day",
+          "price": "15.",
+          "region": "",
+          "desc_kor": "",
+          "desc_eng": ""
+        }
+      ]
+    }
+  ]
+}

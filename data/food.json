@@ -1,0 +1,217 @@
+{
+  "title": "PÉPITE",
+  "sections": [
+    {
+      "name": "STARTER",
+      "items": [
+        {
+          "kor": "시저 샐러드",
+          "eng": "Caesar Salad",
+          "price": "13.",
+          "desc_kor": "로메인, 곡물후레이크, 베이컨크럼블, 큐어드에그, 레지아노",
+          "desc_eng": "Romaine, Grain Flakes, Bacon Crumble, Cured Egg, Reggiano"
+        },
+        {
+          "kor": "우니 타르틀렛 (2pieces)",
+          "eng": "Uni Tartlet (2 pieces) (1piece 추가 6.5)",
+          "price": "13.",
+          "desc_kor": "성게알(우니), 흰다리새우, 사과젤리, 레몬",
+          "desc_eng": "Uni, Whiteleg Shrimp, Apple Jelly, Lemon"
+        },
+        {
+          "kor": "무화과 카프레제",
+          "eng": "Fig Caprese",
+          "price": "18.",
+          "desc_kor": "무화과, 토마토, 펜넬, 꽁떼치즈, 토사즈 크림을 곁들인 상큼한 스타터",
+          "desc_eng": "Fresh starter with Fig, Tomato, Fennel, Comté, Tossed Cream"
+        },
+        {
+          "kor": "마리네이드 참외, 프로슈토 샐러드",
+          "eng": "Marinated Chamoe & Prosciutto Salad",
+          "price": "24.",
+          "desc_kor": "히비스커스에 마리네이드한 참외, 프로슈토를 곁들인 상큼하고 풍미 가득한 샐러드",
+          "desc_eng": "Refreshing, flavorful salad with hibiscus-marinated chamoe and prosciutto"
+        },
+        {
+          "kor": "한우 비프 타르타르",
+          "eng": "Hanwoo Beef Tartare",
+          "price": "26.",
+          "desc_kor": "한우홍두깨살, 블랙트러플, 사바용, 브리오슈크루통, 머스터드씨드피클",
+          "desc_eng": "Hanwoo Topside, black truffle, sabayon, brioche crouton, mustard seed pickle"
+        },
+        {
+          "kor": "전복 아에모노",
+          "eng": "Abalone Aemono",
+          "price": "28.",
+          "desc_kor": "다시마에 찐 전복, 리코타, 헤이즐넛 캔디, 앤다이브를 곁들인 무침요리",
+          "desc_eng": "Abalone, kelp, ricotta, hazelnut candy, endive"
+        },
+        {
+          "kor": "잿방어 세비체",
+          "eng": "Aged Amberjack Ceviche",
+          "price": "32.",
+          "desc_kor": "숙성한 잿방어, 로메스코소스, 토마토폼, 허브오일, 펜넬피클, 레몬겔",
+          "desc_eng": "Amberjack, aged, romesco, tomato foam, herb oil, fennel pickle, lemon gel"
+        }
+      ]
+    },
+    {
+      "name": "PASTA",
+      "items": [
+        {
+          "kor": "대구 라비올리",
+          "eng": "Cod Ravioli",
+          "price": "28.",
+          "desc_kor": "뵈르블랑, 대구, 메쉬드포테이토, 토사즈",
+          "desc_eng": "Beurre blanc, cod, mashed potato, tossed sauce"
+        },
+        {
+          "kor": "홍새우",
+          "eng": "Red Shrimp",
+          "price": "28.",
+          "desc_kor": "홍새우비스크, 홍새우, 스트라치아텔라",
+          "desc_eng": "Red Shrimp Bisque, Red Shrimp, Stracciatella"
+        },
+        {
+          "kor": "화이트 라구",
+          "eng": "White Ragu",
+          "price": "30.",
+          "desc_kor": "화이트라구, 화이트포트와인, 포르치니버섯",
+          "desc_eng": "White ragu, porcini mushrooms, white port"
+        },
+        {
+          "kor": "우니",
+          "eng": "Uni",
+          "price": "32.",
+          "desc_kor": "6시간 끓인 치킨육수를 이용한 버터소스, 우니",
+          "desc_eng": "Chicken stock, butter sauce, sea urchin"
+        },
+        {
+          "kor": "트러플",
+          "eng": "Truffle",
+          "price": "34.",
+          "desc_kor": "페투치네, 트러플버터소스, 표고버섯",
+          "desc_eng": "Fettuccine, truffle butter sauce, shiitake mushroom"
+        },
+        {
+          "kor": "홍새우 리조토",
+          "eng": "Red Shrimp Risotto",
+          "price": "26.",
+          "desc_kor": "홍새우, 사프란, 비스크 소스를 곁들인 매콤한 리조또",
+          "desc_eng": "Red shrimp, saffron, bisque sauce"
+        }
+      ]
+    },
+    {
+      "name": "MAIN",
+      "items": [
+        {
+          "kor": "해산물 플레터",
+          "eng": "Seafood Platter",
+          "price": "98.",
+          "desc_kor": "PÉPITE만의 깊은 풍미를 담은 다양하고 풍성한 차가운 해산물 요리",
+          "desc_eng": "A rich and abundant seafood selection with PÉPITE's signature depth of flavor"
+        },
+        {
+          "kor": "대구",
+          "eng": "Aged Cod Steak",
+          "price": "42.",
+          "desc_kor": "숙성한 대구, 토마토 랠리쉬, 컬리플라워 소스, 태운 시금치",
+          "desc_eng": "Cod, aged, tomato relish, cauliflower sauce, charred spinach"
+        },
+        {
+          "kor": "오리",
+          "eng": "Grilled Duck Steak",
+          "price": "42.",
+          "desc_kor": "오리가슴살, 타래, 오렌지소스, 당근퓨레, 우메보시",
+          "desc_eng": "Duck Breast with Tare Sauce, Orange Sauce, Carrot Purée, and Umeboshi"
+        },
+        {
+          "kor": "채끝",
+          "eng": "Striploin Steak",
+          "price": "65.",
+          "desc_kor": "1+채끝등심, 태운 가지 퓨레, 우엉, 소뼈로 끓인 비프쥬",
+          "desc_eng": "1+ striploin, charred eggplant purée, burdock, beef jus"
+        }
+      ]
+    },
+    {
+      "name": "MEAL",
+      "items": [
+        {
+          "kor": "네기토로마키 (8 pieces)",
+          "eng": "Negitoro Maki",
+          "price": "32.",
+          "desc_kor": "참다랑어 뱃살에 알싸한 대파 함께 다져 넣어 말은 김초밥",
+          "desc_eng": "Fatty tuna belly, green onion, sushi roll"
+        },
+        {
+          "kor": "스키야키, 우동",
+          "eng": "Sukiyaki with Udon",
+          "price": "42.",
+          "desc_kor": "다시마와 가츠오로 끓인 깊이 있는 육수와 살치살을 곁들인 관동식 스키야키",
+          "desc_eng": "Kelp, bonito, broth, chuck flap tail, Kanto-style, udon"
+        }
+      ]
+    },
+    {
+      "name": "SIDE",
+      "items": [
+        {
+          "kor": "올리브, 하몽",
+          "eng": "Olives, Jamón",
+          "price": "12.",
+          "desc_kor": "카스텔베트라노올리브, 허브오일, 하몽",
+          "desc_eng": "Castelvetrano Olive, Herb Oil, Jamón"
+        },
+        {
+          "kor": "트러플감자튀김",
+          "eng": "Truffle Fries",
+          "price": "15.",
+          "desc_kor": "블랙트러플, 트러플마요네즈",
+          "desc_eng": "Black Truffle, Truffle Mayo"
+        },
+        {
+          "kor": "홍새우, 올리브 스큐어 (4 pieces)",
+          "eng": "Red Prawn, Olive Skewer",
+          "price": "20.",
+          "desc_kor": "숯불에 구워 깊은 풍미를 더한 홍새우와 마리네이드 올리브를 꼬치",
+          "desc_eng": "Skewered red prawn grilled over charcoal, served with marinated olives."
+        },
+        {
+          "kor": "깔라마리",
+          "eng": "Chipirones",
+          "price": "24.",
+          "desc_kor": "오징어, 파프리카 파우더, 레몬 대파 마요",
+          "desc_eng": "Squid, Paprika Powder, Lemon & Green Onion Mayo"
+        },
+        {
+          "kor": "빵추가",
+          "eng": "",
+          "price": "4.",
+          "desc_kor": "포카치아 (Focaccia)",
+          "desc_eng": ""
+        }
+      ]
+    },
+    {
+      "name": "DESSERT",
+      "items": [
+        {
+          "kor": "마스카포네크림, 바닐라아이스크림",
+          "eng": "Mascarpone Cream & Vanilla Ice Cream",
+          "price": "13.",
+          "desc_kor": "마스카포네크림, 코코아크럼블, 그래놀라, 아이스크림",
+          "desc_eng": "mascarpone cream, cocoa crumble, granola, ice cream"
+        },
+        {
+          "kor": "자몽 타르틀렛 (2pieces)",
+          "eng": "Grapefruit Tartlet (1piece 추가 6.0)",
+          "price": "12.",
+          "desc_kor": "자몽커스터드, 초코 타르틀렛, 자몽, 오렌지",
+          "desc_eng": "Grapefruit custard, chocolate tartlet, grapefruit, orange"
+        }
+      ]
+    }
+  ]
+}
