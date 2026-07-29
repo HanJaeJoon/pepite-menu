@@ -13,8 +13,9 @@
         },
         {
           "kor": "우니 타르틀렛 (2pieces)",
-          "eng": "Uni Tartlet (2 pieces) (1piece 추가 6.5)",
+          "eng": "Uni Tartlet (2 pieces)",
           "price": "13.",
+          "price_note": "1piece 추가 6.5",
           "desc_kor": "성게알(우니), 흰다리새우, 사과젤리, 레몬",
           "desc_eng": "Uni, Whiteleg Shrimp, Apple Jelly, Lemon"
         },
@@ -187,6 +188,7 @@
         },
         {
           "kor": "빵추가",
+          "kor_small": "(3pieces)",
           "eng": "",
           "price": "4.",
           "desc_kor": "포카치아 (Focaccia)",
@@ -206,8 +208,9 @@
         },
         {
           "kor": "자몽 타르틀렛 (2pieces)",
-          "eng": "Grapefruit Tartlet (1piece 추가 6.0)",
+          "eng": "Grapefruit Tartlet",
           "price": "12.",
+          "price_note": "1piece 추가 6.0",
           "desc_kor": "자몽커스터드, 초코 타르틀렛, 자몽, 오렌지",
           "desc_eng": "Grapefruit custard, chocolate tartlet, grapefruit, orange"
         }

@@ -50,6 +50,7 @@ STYLE = {
     'engname_size': 9,             # 메뉴 영문명
     'desc_size': 9,                # 설명
     'price_size': 11.5,
+    'small_size': 7,               # 부가 표기 (kor_small, price_note, 코스의 작은 괄호)
 
     # 브랜드 색 (기존 메뉴판에서 그대로 가져옴)
     'logo': RGBColor(0xE3, 0x6C, 0x0A),    # PÉPITE 로고 주황
@@ -86,6 +87,12 @@ PAGES = {
     'food': [['STARTER'], ['PASTA'], ['MAIN', 'MEAL'], ['SIDE', 'DESSERT']],
     'lunch': [['STARTER'], ['PASTA', 'MAIN'], ['MEAL', 'DESSERT', 'SIDE', 'DRINKS']],
     'wine': [['WHITE WINE'], ['RED WINE'], ['SPARKLING WINE', 'HOUSE WINE']],
+}
+
+# 특정 섹션만 헤더 위 간격을 다르게 (기본값은 STYLE['section_gap_before'])
+# 같은 페이지에 두 섹션이 붙어 있을 때 사이를 더 벌리는 용도.
+SECTION_GAP_BEFORE = {
+    ('food', 'MEAL'): 26,     # MAIN 과 MEAL 사이를 한 줄 더 띄운다
 }
 
 
@@ -143,9 +150,24 @@ def keep_next(p, on=True):
     pPr.append(OxmlElement('w:keepLines'))
 
 
+def put_run(p, text, *, font, size, bold=False, color=None, eastasia=None):
+    """문단에 run 하나 추가. 한 줄 안에서 글자 크기를 바꿀 때 나눠 쓴다."""
+    r = p.add_run(text)
+    r.font.name = font
+    r.font.size = Pt(size)
+    r.font.bold = bold
+    if color is not None:
+        r.font.color.rgb = color
+    r._element.rPr.rFonts.set(qn('w:eastAsia'), eastasia or STYLE['font_kor'])
+    return r
+
+
 def line(cell, text, *, font, size, bold=False, color=None,
-         after=0, first=False, align=None):
-    """셀 안에 한 줄(문단) 추가. first=True 면 셀의 기본 빈 문단을 재사용."""
+         after=0, first=False, align=None, small=None):
+    """셀 안에 한 줄(문단) 추가. first=True 면 셀의 기본 빈 문단을 재사용.
+
+    small 을 주면 같은 줄 뒤에 작은 글씨로 덧붙인다 (예: 빵추가 + (3pieces)).
+    """
     p = cell.paragraphs[0] if first else cell.add_paragraph()
     pf = p.paragraph_format
     pf.space_before = Pt(0)
@@ -153,20 +175,17 @@ def line(cell, text, *, font, size, bold=False, color=None,
     pf.line_spacing = 1.0
     if align is not None:
         p.alignment = align
-    r = p.add_run(text)
-    r.font.name = font
-    r.font.size = Pt(size)
-    r.font.bold = bold
-    if color is not None:
-        r.font.color.rgb = color
-    r._element.rPr.rFonts.set(qn('w:eastAsia'), STYLE['font_kor'])
+    put_run(p, text, font=font, size=size, bold=bold, color=color)
+    if small:
+        put_run(p, ' ' + small, font=font, size=STYLE['small_size'],
+                bold=bold, color=color)
     return p
 
 
-def section_header(doc, name):
+def section_header(doc, name, gap_before=None):
     p = doc.add_paragraph()
     pf = p.paragraph_format
-    pf.space_before = Pt(STYLE['section_gap_before'])
+    pf.space_before = Pt(STYLE['section_gap_before'] if gap_before is None else gap_before)
     pf.space_after = Pt(STYLE['section_gap_after'])
     keep_next(p)
     r = p.add_run(name)
@@ -221,9 +240,13 @@ def item_table(doc, n_rows):
     return t
 
 
-def price_cell(cell, price, size=None):
+def price_cell(cell, price, size=None, note=None):
+    """가격. note 를 주면 가격 밑에 작은 글씨로 한 줄 더 (예: 1piece 추가 6.5)."""
     line(cell, price, font=STYLE['font_head'], size=size or STYLE['price_size'],
          first=True, align=WD_ALIGN_PARAGRAPH.RIGHT)
+    if note:
+        line(cell, note, font=STYLE['font_eng'], size=STYLE['small_size'],
+             color=STYLE['gray'], align=WD_ALIGN_PARAGRAPH.RIGHT)
 
 
 # --------------------------------------------------------------------------
@@ -240,12 +263,12 @@ def build_dish(key, out_name):
         doc_title(doc, data['title'])
         for sec in page:
             s = by_name[sec]
-            section_header(doc, s['name'])
+            section_header(doc, s['name'], SECTION_GAP_BEFORE.get((key, sec)))
             t = item_table(doc, len(s['items']))
             for row, it in zip(t.rows, s['items']):
                 c = row.cells[0]
                 line(c, it['kor'], font=STYLE['font_kor'], size=STYLE['name_size'],
-                     bold=True, first=True, after=1)
+                     bold=True, first=True, after=1, small=it.get('kor_small'))
                 if it['eng']:
                     line(c, it['eng'], font=STYLE['font_eng'],
                          size=STYLE['engname_size'], bold=True, after=2)
@@ -256,7 +279,7 @@ def build_dish(key, out_name):
                     line(c, it['desc_eng'], font=STYLE['font_eng'],
                          size=STYLE['desc_size'], color=STYLE['gray'])
                 c.paragraphs[-1].paragraph_format.space_after = Pt(STYLE['item_gap'])
-                price_cell(row.cells[1], it['price'])
+                price_cell(row.cells[1], it['price'], note=it.get('price_note'))
 
     doc.save(os.path.join(DIST, out_name))
     print('saved', out_name)
@@ -310,22 +333,21 @@ def build_course(out_name):
 
     heads = {'STARTER', 'PASTA', 'MAIN', 'DESSERT'}
 
-    def put(text, size, *, font=None, bold=False, before=0, after=0, color=None):
+    def put(text, size, *, font=None, bold=False, before=0, after=0, color=None,
+            small=None):
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.paragraph_format.space_before = Pt(before)
         p.paragraph_format.space_after = Pt(after)
         p.paragraph_format.line_spacing = 1.0
         keep_next(p)
-        r = p.add_run(text)
-        r.font.name = font or STYLE['font_kor']
-        r.font.size = Pt(size)
-        r.font.bold = bold
-        if color is not None:
-            r.font.color.rgb = color
+        f = font or STYLE['font_kor']
         # 한글 대체 폰트는 헤드 폰트를 쓰는 줄(로고/섹션명)만 예외로 둔다
         ea = font if font == STYLE['font_head'] else STYLE['font_kor']
-        r._element.rPr.rFonts.set(qn('w:eastAsia'), ea)
+        put_run(p, text, font=f, size=size, bold=bold, color=color, eastasia=ea)
+        if small:
+            put_run(p, ' ' + small, font=f, size=STYLE['small_size'],
+                    bold=bold, color=color, eastasia=ea)
         return p
 
     t = put(data['title'], 20, font=STYLE['font_head'], after=2, color=STYLE['logo'])
@@ -334,6 +356,10 @@ def build_course(out_name):
     put(data['subtitle'], 12, font=STYLE['font_head'], after=6, color=STYLE['logo'])
 
     for ln in data['lines']:
+        # ["식전 빵", "(빵 추가 2pcs 3.)"] 처럼 리스트면 뒷부분을 작은 글씨로 붙인다
+        small = None
+        if isinstance(ln, list):
+            ln, small = ln[0], ln[1]
         if ln in heads:
             put(ln, 12, font=STYLE['font_head'], before=12, after=6)
         elif ln == 'or':
@@ -347,7 +373,7 @@ def build_course(out_name):
         elif ln[0].isascii():
             put(ln, 8, font=STYLE['font_eng'], color=STYLE['gray'], after=3)
         else:
-            put(ln, 10, bold=True, after=1)
+            put(ln, 10, bold=True, after=1, small=small)
 
     doc.save(os.path.join(DIST, out_name))
     print('saved', out_name)

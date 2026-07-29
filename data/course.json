@@ -3,7 +3,7 @@
   "subtitle": "LUNCH SET MENU",
   "lines": [
     "STARTER",
-    "식전 빵 (빵 추가 2pcs 3.)",
+    ["식전 빵", "(빵 추가 2pcs 3.)"],
     "Pre-meal Bread (Add 2 pcs +3.)",
     "한우 비프타르타르",
     "Hanwoo Beef Tartare",
