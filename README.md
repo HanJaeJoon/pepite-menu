@@ -32,9 +32,13 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1     # dist/*.pdf  
 | 파일 | 페이지 |
 |---|---|
 | 페피트 요리 메뉴판 | 4 |
-| 페피트 런치 메뉴판 | 3 |
+| 페피트 런치 메뉴판 | 2 |
 | 페피트 런치 코스메뉴 | 1 (A5) |
-| 페피트 와인 메뉴판 | 7 |
+| 페피트 와인 메뉴판 | 6 |
+
+- Word 에서 해당 docx 를 열어둔 채로 빌드하면 저장이 막힌다. 닫고 실행할 것.
+- `ChunkFive Ex` 폰트가 설치돼 있어야 로고/섹션 헤더/가격이 의도한 모양으로 나온다.
+  없으면 Word 가 대체 폰트로 그린다. (`바탕`, `Times New Roman` 은 Windows 기본)
 
 ## 메뉴를 바꾸려면
 
