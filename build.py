@@ -128,11 +128,10 @@ SECTION_GAP_BEFORE = {
     ('food', 'MEAL'): 26,     # MAIN 과 MEAL 사이를 한 줄 더 띄운다
 }
 
-# 영문 설명만 한글 설명보다 한 단계 작게 쓰는 메뉴판. 지정이 없으면 desc_size.
-# 요리 메뉴판은 영문명(9pt bold)과 영문 설명이 같은 크기여서 구분이 약했다.
-DESC_ENG_SIZE = {
-    'food': 8,
-}
+# 영문 설명 서식. 기본은 한글 설명과 같은 크기 + 회색 보조 텍스트.
+# 여기에 적은 메뉴판은 영문 설명을 영문명과 같은 서식(engname_size, 검정)으로 맞춘다.
+# 요리(디너)는 2026-07-29 요청으로 영문명과 크기/색을 통일했다.
+DESC_ENG_AS_ENGNAME = {'food'}
 
 
 def page_spec(page):
@@ -322,7 +321,9 @@ def price_cell(cell, price, size=None, note=None):
 def build_dish(key, out_name):
     data = json.load(open(os.path.join(DATA, key + '.json'), encoding='utf-8'))
     by_name = {s['name']: s for s in data['sections']}
-    desc_eng_size = DESC_ENG_SIZE.get(key, STYLE['desc_size'])
+    as_engname = key in DESC_ENG_AS_ENGNAME
+    desc_eng_size = STYLE['engname_size'] if as_engname else STYLE['desc_size']
+    desc_eng_color = None if as_engname else STYLE['gray']
     doc = new_doc()
 
     for pi, page in enumerate(PAGES[key]):
@@ -349,7 +350,7 @@ def build_dish(key, out_name):
                          size=STYLE['desc_size'], after=1)
                 if it['desc_eng']:
                     line(c, it['desc_eng'], font=STYLE['font_eng'],
-                         size=desc_eng_size, color=STYLE['gray'])
+                         size=desc_eng_size, color=desc_eng_color)
                 c.paragraphs[-1].paragraph_format.space_after = Pt(gap)
                 price_cell(row.cells[1], it['price'], note=it.get('price_note'))
 
