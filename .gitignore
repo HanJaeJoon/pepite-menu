@@ -1,0 +1,10 @@
+# 빌드 산출물 (build.py 로 언제든 재생성 가능)
+dist/
+
+# Word 임시 잠금 파일
+~$*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
