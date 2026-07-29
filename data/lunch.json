@@ -52,13 +52,6 @@
       "name": "PASTA",
       "items": [
         {
-          "kor": "대구 라비올리",
-          "eng": "Cod Ravioli",
-          "price": "28.",
-          "desc_kor": "뵈르블랑, 대구, 메쉬드포테이토, 토사즈",
-          "desc_eng": "Beurre blanc, cod, mashed potato, tossed sauce"
-        },
-        {
           "kor": "홍새우 파스타",
           "eng": "Red Shrimp Pasta",
           "price": "28.",
