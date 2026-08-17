@@ -39,6 +39,10 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1     # dist/*.pdf  
 - Word 에서 해당 docx 를 열어둔 채로 빌드하면 저장이 막힌다. 닫고 실행할 것.
 - `ChunkFive Ex` 폰트가 설치돼 있어야 로고/섹션 헤더/가격이 의도한 모양으로 나온다.
   없으면 Word 가 대체 폰트로 그린다. (`바탕`, `Times New Roman` 은 Windows 기본)
+  폰트 파일은 `fonts/Chunkfive Ex.ttf` 로 동봉했다 (Peter Wiegel 제작, SIL OFL 1.1,
+  라이선스 전문도 같은 폴더에 있음). 새 머신에서는 이 파일을 우클릭 -> 설치.
+- PDF 에 폰트가 제대로 들어갔는지는 임베드 폰트 목록에 `ChunkFive Ex` 가 있는지로
+  확인할 수 있다 (없으면 대체 폰트로 렌더링된 것).
 
 ## 메뉴를 바꾸려면
 
