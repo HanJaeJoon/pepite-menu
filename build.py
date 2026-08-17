@@ -80,7 +80,8 @@ WINE_STYLE = {
     'region_size': 7,
     'desc_size': 8,
     'price_size': 9.5,
-    'item_gap': 18,     # 와인 사이를 한 줄 띄운다 (줄높이 약 10pt + 기존 8pt)
+    'item_gap': 16,     # 와인 사이를 한 줄 띄운다. 레드 3종 추가 후에도 6페이지에
+                        # 들어가도록 18 -> 16 (2026-08-17). 18 로 되돌리면 7페이지가 됨.
 }
 
 # 페이지 구성. 리스트 하나 = 한 페이지.
@@ -112,13 +113,14 @@ PAGES = {
     # 섹션을 페이지 사이로 이어 흘리고 끊는 위치를 여기에 명시한다.
     # 덕분에 앞쪽에 한 종을 추가해도 뒤 페이지가 밀리지 않는다.
     # 와인 사이를 한 줄 띄우면서(item_gap 18) 5페이지에 안 들어가 6페이지로 늘렸다.
+    # 2026-08-17 레드 3종 추가 + NON-ALCOHOLIC 신설, 6페이지 유지 요청으로 재배치.
     'wine': [
         [('WHITE WINE', 0, 8)],
         [('WHITE WINE', 8, 16, False)],
-        [('WHITE WINE', 16, None, False), ('RED WINE', 0, 4)],
-        [('RED WINE', 4, 13, False)],
-        [('RED WINE', 13, None, False), ('SPARKLING WINE', 0, 5)],
-        [('SPARKLING WINE', 5, None, False), 'HOUSE WINE'],
+        [('WHITE WINE', 16, None, False), ('RED WINE', 0, 5)],
+        [('RED WINE', 5, 14, False)],
+        [('RED WINE', 14, None, False), ('SPARKLING WINE', 0, 4)],
+        [('SPARKLING WINE', 4, None, False), 'NON-ALCOHOLIC'],
     ],
 }
 
@@ -306,6 +308,18 @@ def page_break(doc):
     r.add_break(WD_BREAK.PAGE)
 
 
+def tail_paragraph(doc):
+    """본문 끝에 1pt 문단을 명시한다. 문서가 표로 끝나면 Word 가 뒤에 기본 크기의
+    빈 문단을 자동으로 붙이는데, 마지막 페이지가 꽉 찬 경우 그 문단만 다음 페이지로
+    밀려 빈 페이지가 생긴다. (와인 6페이지에서 실제 발생, 2026-08-17)"""
+    p = doc.add_paragraph()
+    pf = p.paragraph_format
+    pf.space_before = pf.space_after = Pt(0)
+    pf.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+    pf.line_spacing = Pt(1)
+    p.add_run().font.size = Pt(1)
+
+
 def price_cell(cell, price, size=None, note=None):
     """가격. note 를 주면 가격 밑에 작은 글씨로 한 줄 더 (예: 1piece 추가 6.5)."""
     line(cell, price, font=STYLE['font_head'], size=size or STYLE['price_size'],
@@ -354,6 +368,7 @@ def build_dish(key, out_name):
                 c.paragraphs[-1].paragraph_format.space_after = Pt(gap)
                 price_cell(row.cells[1], it['price'], note=it.get('price_note'))
 
+    tail_paragraph(doc)
     doc.save(os.path.join(DIST, out_name))
     print('saved', out_name)
 
@@ -393,6 +408,7 @@ def build_wine(out_name):
                 c.paragraphs[-1].paragraph_format.space_after = Pt(gap)
                 price_cell(row.cells[1], it['price'], WINE_STYLE['price_size'])
 
+    tail_paragraph(doc)
     doc.save(os.path.join(DIST, out_name))
     print('saved', out_name)
 
@@ -403,8 +419,9 @@ def build_course(out_name):
     s = doc.sections[0]
     s.page_width, s.page_height = Cm(14.8), Cm(21.0)     # A5
     s.left_margin = s.right_margin = Cm(1.6)
-    # 섹션 사이를 한 줄 더 띄우면서 마지막 줄이 2페이지로 넘어가 1.4 -> 1.2 로 줄였다
-    s.top_margin = s.bottom_margin = Cm(1.2)
+    # 섹션 사이를 한 줄 더 띄우면서 마지막 줄이 2페이지로 넘어가 1.4 -> 1.2 로 줄였고,
+    # 식전빵/타르타르 사이 'and' 한 줄이 늘어나 1.2 -> 1.0 으로 더 줄였다 (1페이지 유지)
+    s.top_margin = s.bottom_margin = Cm(1.0)
     n = doc.styles['Normal']
     n.font.name = STYLE['font_kor']
     n.element.rPr.rFonts.set(qn('w:eastAsia'), STYLE['font_kor'])
@@ -443,8 +460,9 @@ def build_course(out_name):
         if ln in heads:
             # 코스 섹션 사이는 한 줄 더 띄운다 (2026-07-29 요청). 12 -> 26
             put(ln, 12, font=STYLE['font_head'], before=26, after=6)
-        elif ln == 'or':
-            put('or', 8, color=STYLE['gray'], before=1, after=1)
+        elif ln in ('or', 'and'):
+            # 'and' 는 식전빵과 비프타르타르 사이 간격/연결 표시 (2026-08-17 요청)
+            put(ln, 8, color=STYLE['gray'], before=1, after=1)
         elif ln.startswith('98,000'):
             put(ln, 16, font=STYLE['font_head'], before=20, after=2)
         elif ln.startswith('(1인기준'):

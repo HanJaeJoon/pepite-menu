@@ -103,7 +103,7 @@
         {
           "kor": "쇼 앤 스미스 엠쓰리 샤르도네",
           "eng": "Shaw and Smith M3 Chardonnay",
-          "price": "130.",
+          "price": "140.",
           "region": "호주 > 남호주 > 아들레이드 힐스 | 샤르도네100%",
           "desc_kor": "복숭아와 시트러스 향에 세련된 오크 터치가 돋보이는 와인으로, 우아한 산도와 미묘한 너트 향이 긴 여운을 남기는 와인.",
           "desc_eng": "A wine highlighted by peach and citrus aromas with a refined touch of oak, featuring elegant acidity and subtle nutty notes that linger on the finish."
@@ -194,6 +194,14 @@
           "desc_eng": "A traditional Tuscan wine with aromas of cherry and plum intertwined with oak and tobacco notes. This Riserva stands out for its solid structure and long-lasting finish."
         },
         {
+          "kor": "락베어 바로사 밸리 쉬라즈",
+          "eng": "RockBare Barossa Valley Shiraz",
+          "price": "90.",
+          "region": "호주 > 남호주 > 바로사 밸리 | 쉬라즈100%",
+          "desc_kor": "잘 익은 블랙베리와 자두, 다크 초콜릿과 후추 뉘앙스가 어우러진 풀바디 쉬라즈로, 부드러운 탄닌과 긴 여운이 돋보이는 와인.",
+          "desc_eng": "A full-bodied Shiraz combining ripe blackberry and plum with dark chocolate and peppery nuances, featuring smooth tannins and a long finish."
+        },
+        {
           "kor": "비에티 랑게 네비올로",
           "eng": "Vietti Langhe Nebbiolo Perbacco",
           "price": "100.",
@@ -216,6 +224,14 @@
           "region": "미국 > 캘리포니아 > 몬터레이 | 피노누아100%",
           "desc_kor": "부드러운 라즈베리와 체리 향에 은은한 삼나무 뉘앙스가 감도는, 캘리포니아 스타일의 실키한 피노 누아.",
           "desc_eng": "A silky California-style Pinot Noir with soft raspberry and cherry aromas, subtly infused with cedar nuances."
+        },
+        {
+          "kor": "로비소네 나파 레드 블랜드",
+          "eng": "",
+          "price": "110.",
+          "region": "미국 > 캘리포니아 > 나파 밸리",
+          "desc_kor": "",
+          "desc_eng": ""
         },
         {
           "kor": "우나니메 말벡",
@@ -274,6 +290,14 @@
           "desc_eng": "A refined Gevrey-Chambertin with deep aromas of black cherry, leather, and cedar, offering a rich presence and excellent aging potential."
         },
         {
+          "kor": "그르기치 힐스 이스테이트 나파 밸리 카버네 소비뇽",
+          "eng": "Grgich Hills Estate Napa Valley Cabernet Sauvignon",
+          "price": "280.",
+          "region": "미국 > 캘리포니아 > 나파 밸리 | 카버네 소비뇽100%",
+          "desc_kor": "블랙커런트와 체리, 삼나무와 은은한 오크 향이 조화를 이루는 나파 밸리의 클래식 카버네 소비뇽으로, 탄탄한 구조와 우아한 여운이 돋보이는 와인.",
+          "desc_eng": "A classic Napa Valley Cabernet Sauvignon harmonizing blackcurrant, cherry, cedar, and subtle oak aromas, distinguished by its firm structure and elegant, lingering finish."
+        },
+        {
           "kor": "도멘 샤비 슈에 뽀마르 프리미에 크뤼 \"레 산랑\"",
           "eng": "Domaine Chavy-Chouet Pommard 1er Cru \"Les Chanlins\"",
           "price": "380.",
@@ -303,14 +327,6 @@
           "desc_eng": "A light and elegant Alsace Crémant combining ripe apple and white floral aromas with fine bubbles and refreshing acidity."
         },
         {
-          "kor": "르 쁘띠 에뚜알 오가닉 샤르도네 (스파클링/논알콜)",
-          "eng": "Le Petit Étoile Organic Chardonnay (Sparkling / Non-Alcoholic)",
-          "price": "80.",
-          "region": "프랑스 > 남 프랑스 | 샤르도네 100%",
-          "desc_kor": "르 쁘띠 에뚜알은 작은 별 이라는 뜻으로, 이 무알콜 와인의 작고 섬세한 버블을 연상케 한다.",
-          "desc_eng": "\"Le Petit Étoile\" means \"little star,\" evoking the small, delicate bubbles in this non-alcoholic wine."
-        },
-        {
           "kor": "비에티 모스카토 다스티",
           "eng": "Vietti Moscato d'Asti",
           "price": "90.",
@@ -333,14 +349,6 @@
           "region": "프랑스 > 알자스 | 피노블랑50%, 오세루아30%, 피노그리20%",
           "desc_kor": "피노 옥세루아와 피노 누아 블렌딩, 61개월 병입 숙성. 부드러운 버블과 과실미, 풍부한 미네랄과 산도가 조화를 이루는 크레망.",
           "desc_eng": "A blend of Pinot Auxerrois and Pinot Noir, aged 61 months on lees. Fine bubbles, vibrant fruit, and a balanced minerality and acidity."
-        },
-        {
-          "kor": "샴페인 알베르 르브랭 블랑 드 누아",
-          "eng": "Champagne Albert Lebrun Blanc de Noirs",
-          "price": "120.",
-          "region": "프랑스 > 샹파뉴 | 피노 뫼니에100%",
-          "desc_kor": "풍부한 붉은 과실과 토스티한 브리오슈 향이 조화를 이루며, 구조감과 긴 여운이 뛰어난 블랑 드 누아 샴페인.",
-          "desc_eng": "A Blanc de Noirs Champagne harmoniously blending rich red fruit and toasty brioche aromas, distinguished by its strong structure and long finish."
         },
         {
           "kor": "까델 보스코 프란치아코르타 퀴베 엑스트라 브뤼",
@@ -401,15 +409,15 @@
       ]
     },
     {
-      "name": "HOUSE WINE",
+      "name": "NON-ALCOHOLIC",
       "items": [
         {
-          "kor": "오늘의 하우스 와인",
-          "eng": "House Wine of the Day",
-          "price": "15.",
-          "region": "",
-          "desc_kor": "",
-          "desc_eng": ""
+          "kor": "르 쁘띠 에뚜알 오가닉 샤르도네 (스파클링/논알콜)",
+          "eng": "Le Petit Étoile Organic Chardonnay (Sparkling / Non-Alcoholic)",
+          "price": "80.",
+          "region": "프랑스 > 남 프랑스 | 샤르도네 100%",
+          "desc_kor": "르 쁘띠 에뚜알은 작은 별 이라는 뜻으로, 이 무알콜 와인의 작고 섬세한 버블을 연상케 한다.",
+          "desc_eng": "\"Le Petit Étoile\" means \"little star,\" evoking the small, delicate bubbles in this non-alcoholic wine."
         }
       ]
     }
