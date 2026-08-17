@@ -21,8 +21,9 @@ import json, os, sys
 
 import docx
 from docx.shared import Pt, Cm, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK, WD_LINE_SPACING
-from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.enum.text import (WD_ALIGN_PARAGRAPH, WD_BREAK, WD_LINE_SPACING,
+                            WD_TAB_ALIGNMENT)
+from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
@@ -82,6 +83,26 @@ WINE_STYLE = {
     'price_size': 9.5,
     'item_gap': 16,     # 와인 사이를 한 줄 띄운다. 레드 3종 추가 후에도 6페이지에
                         # 들어가도록 18 -> 16 (2026-08-17). 18 로 되돌리면 7페이지가 됨.
+}
+
+# 위스키 메뉴판 (2026-08-17 수제 docx 에서 마이그레이션. 병 사진/3단 구성이 있어
+# PAGES 를 쓰지 않고 전용 빌더 build_whisky 로 만든다. 1페이지 고정.)
+# 폰트는 원본 그대로 Adobe 명조 Std M 을 유지한다. 일본어 신자체 한자(焼 등)가
+# 있어서 바탕으로 바꾸면 글자가 깨질 수 있고, 미설치 머신에서는 원본 docx 때와
+# 동일하게 Word 가 대체 폰트로 그린다.
+WHISKY_STYLE = {
+    'font': 'Adobe 명조 Std M',
+    'header_size': 20,        # 섹션 헤더 (日本焼酎 JAPANESE SHOCHU / WHISKY / ETC.)
+    'category_size': 16,      # 고구마 / 보리 / 쌀
+    'name_size': 12,          # 품목명
+    'sub_size': 8,            # 한자 표기 + 영문명
+    'spec_size': 7,           # 알코올도수 / 원산지 / 용량
+    'desc_size': 9,           # 위스키 설명문
+    'label_size': 8,          # BOTTLE, Shot / Highball
+    'price_size': 10.5,       # 위스키 가격
+    'shochu_price_size': 11,  # 쇼츄 Bottle 가격
+    'etc_size': 12,           # ETC 품목 (원본 14 + 장평 83%. 장평 없이 12 로 비슷한 폭)
+    'margin_lr': 2.2, 'margin_tb': 1.6,
 }
 
 # 페이지 구성. 리스트 하나 = 한 페이지.
@@ -478,8 +499,180 @@ def build_course(out_name):
     print('saved', out_name)
 
 
+def build_whisky(out_name):
+    """위스키 메뉴판. 원본 수제 docx 의 배치(쇼츄 3단 / 위스키 목록 / ETC 2단)를
+    표 기반으로 재현한다. 가격은 탭 개수가 아니라 오른쪽 탭 스톱으로 정렬한다."""
+    data = json.load(open(os.path.join(DATA, 'whisky.json'), encoding='utf-8'))
+    ws = WHISKY_STYLE
+    assets = os.path.join(HERE, 'assets', 'whisky')
+    body_w = STYLE['page_w'] - 2 * ws['margin_lr']
+
+    doc = docx.Document()
+    s = doc.sections[0]
+    s.page_width, s.page_height = Cm(STYLE['page_w']), Cm(STYLE['page_h'])
+    s.left_margin = s.right_margin = Cm(ws['margin_lr'])
+    s.top_margin = s.bottom_margin = Cm(ws['margin_tb'])
+    n = doc.styles['Normal']
+    n.font.name = ws['font']
+    n.font.size = Pt(ws['desc_size'])
+    n.element.rPr.rFonts.set(qn('w:eastAsia'), ws['font'])
+
+    def run(p, text, size, bold=False, color=None):
+        return put_run(p, text, font=ws['font'], size=size, bold=bold,
+                       color=color, eastasia=ws['font'])
+
+    def para(cell, *, first=False, after=0, align=None, right_tab=None):
+        p = cell.paragraphs[0] if first else cell.add_paragraph()
+        pf = p.paragraph_format
+        pf.space_before = Pt(0)
+        pf.space_after = Pt(after)
+        pf.line_spacing = 1.0
+        if align is not None:
+            p.alignment = align
+        if right_tab is not None:
+            pf.tab_stops.add_tab_stop(Cm(right_tab), WD_TAB_ALIGNMENT.RIGHT)
+        return p
+
+    def header(text, before=18):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        pf = p.paragraph_format
+        pf.space_before = Pt(before)
+        pf.space_after = Pt(10)
+        keep_next(p)
+        run(p, text, ws['header_size'], bold=True)
+        bottom_rule(p, color=RGBColor(0, 0, 0))
+        return p
+
+    def left_bar(p):
+        """카테고리(고구마/보리/쌀) 왼쪽의 굵은 세로바. 원본의 6pt 세로선 재현."""
+        pPr = p._p.get_or_add_pPr()
+        bdr = OxmlElement('w:pBdr')
+        b = OxmlElement('w:left')
+        b.set(qn('w:val'), 'single')
+        b.set(qn('w:sz'), '48')          # 1/8pt 단위 -> 6pt
+        b.set(qn('w:space'), '4')
+        b.set(qn('w:color'), '000000')
+        bdr.append(b)
+        pPr.append(bdr)
+
+    def cell_bottom_border(cell):
+        """위스키 품목명 아래의 가로선 (이름 칸 + 가격 칸에 걸쳐 이어진다)."""
+        tcPr = cell._tc.get_or_add_tcPr()
+        borders = OxmlElement('w:tcBorders')
+        b = OxmlElement('w:bottom')
+        b.set(qn('w:val'), 'single')
+        b.set(qn('w:sz'), '4')
+        b.set(qn('w:color'), '000000')
+        borders.append(b)
+        tcPr.append(borders)
+
+    def picture(cell, name, width_cm, height_cm=None, center=False):
+        # 원본이 사진을 특정 크기로 늘려 쓰고 있어서 폭/높이를 모두 강제한다
+        p = cell.paragraphs[0]
+        p.paragraph_format.space_before = p.paragraph_format.space_after = Pt(0)
+        if center:
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.add_run().add_picture(os.path.join(assets, name), width=Cm(width_cm),
+                                height=Cm(height_cm) if height_cm else None)
+
+    def base_table(rows, cols):
+        t = doc.add_table(rows=rows, cols=cols)
+        t.alignment = WD_TABLE_ALIGNMENT.LEFT
+        t.autofit = False
+        set_cell_borders_none(t)
+        set_cell_margins(t)
+        for r in t.rows:
+            no_split(r)
+        return t
+
+    for sec in data['sections']:
+        header(sec['name'], before=0 if sec is data['sections'][0] else 18)
+
+        if sec['type'] == 'shochu':
+            col_w = body_w / 3
+            t = base_table(1, 3)
+            for cell, it in zip(t.rows[0].cells, sec['items']):
+                cell.width = Cm(col_w)
+                p = para(cell, first=True, after=6)
+                left_bar(p)
+                run(p, it['category'], ws['category_size'], bold=True)
+                nt = cell.add_table(rows=1, cols=2)
+                nt.autofit = False
+                set_cell_borders_none(nt)
+                set_cell_margins(nt)
+                ic, tc = nt.rows[0].cells
+                ic.width = Cm(it['img_w'] + 0.35)
+                tc.width = Cm(col_w - it['img_w'] - 0.35)
+                picture(ic, it['img'], it['img_w'], it['img_h'])
+                run(para(tc, first=True, after=2), it['kor'], ws['name_size'], bold=True)
+                run(para(tc, after=2), it['sub'], ws['sub_size'])
+                run(para(tc, after=4), it['spec'], ws['spec_size'])
+                pp = para(tc, right_tab=col_w - it['img_w'] - 0.8)
+                run(pp, it['price_label'] + '\t', ws['shochu_price_size'], bold=True)
+                run(pp, it['price'], ws['shochu_price_size'], bold=True)
+
+        elif sec['type'] == 'whisky':
+            img_col, price_col = 1.7, 4.0
+            for i, it in enumerate(sec['items']):
+                t = base_table(2, 3)
+                for r in t.rows:
+                    r.cells[0].width = Cm(img_col)
+                    r.cells[1].width = Cm(body_w - img_col - price_col)
+                    r.cells[2].width = Cm(price_col)
+                ic = t.cell(0, 0).merge(t.cell(1, 0))
+                ic.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+                picture(ic, it['img'], it['img_w'], it['img_h'], center=True)
+
+                run(para(t.cell(0, 1), first=True, after=1), it['kor'],
+                    ws['name_size'], bold=True)
+                pp = para(t.cell(0, 2), first=True, after=1,
+                          right_tab=price_col - 0.15)
+                run(pp, 'BOTTLE\t', ws['label_size'])
+                run(pp, it['bottle'], ws['price_size'])
+                cell_bottom_border(t.cell(0, 1))
+                cell_bottom_border(t.cell(0, 2))
+
+                body = t.cell(1, 1)
+                run(para(body, first=True, after=1), it['eng'], ws['sub_size'])
+                run(para(body, after=2), it['abv'], ws['spec_size'])
+                run(para(body, after=0), it['desc'], ws['desc_size'])
+                if it['shot_highball']:
+                    sp = para(t.cell(1, 2), first=True,
+                              right_tab=price_col - 0.15)
+                    run(sp, 'Shot / Highball\t', ws['label_size'])
+                    run(sp, it['shot_highball'], ws['price_size'])
+                if i < len(sec['items']) - 1:
+                    gap = doc.add_paragraph()
+                    gf = gap.paragraph_format
+                    gf.space_before = gf.space_after = Pt(0)
+                    gf.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+                    gf.line_spacing = Pt(8)
+
+        else:   # etc
+            img_col = 1.6
+            col_w = (body_w - img_col) / 2
+            t = base_table(1, 3)
+            cells = t.rows[0].cells
+            cells[0].width = Cm(img_col)
+            cells[1].width = cells[2].width = Cm(col_w)
+            picture(cells[0], sec['img'], 1.17)
+            for cell, items in ((cells[1], sec['left']), (cells[2], sec['right'])):
+                first = True
+                for name, price in items:
+                    p = para(cell, first=first, after=10,
+                             right_tab=col_w - 0.4)
+                    run(p, name + '\t' + price, ws['etc_size'], bold=True)
+                    first = False
+
+    tail_paragraph(doc)
+    doc.save(os.path.join(DIST, out_name))
+    print('saved', out_name)
+
+
 if __name__ == '__main__':
     build_dish('food', '페피트 요리 메뉴판.docx')
     build_dish('lunch', '페피트 런치 메뉴판.docx')
     build_wine('페피트 와인 메뉴판.docx')
     build_course('페피트 런치 코스메뉴.docx')
+    build_whisky('페피트 위스키 메뉴판.docx')

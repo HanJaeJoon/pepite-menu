@@ -35,6 +35,10 @@ docx 를 직접 손으로 고치지 않는다. 내용은 `data/*.json`, 모양�
 있어야 한다. 없으면 Word 가 대체 폰트로 렌더링해서 로고 모양이 달라진다.
 폰트 파일은 `fonts/Chunkfive Ex.ttf` 로 저장소에 동봉되어 있다 (SIL OFL 1.1, 재배포 허용).
 
+예외: **위스키 메뉴판**은 원본 수제 docx 의 `Adobe 명조 Std M` 을 그대로 쓴다
+(2026-08-17 마이그레이션). 일본어 신자체 한자(焼 등)가 있어 바탕으로 바꾸면 글자가
+깨질 수 있고, 폰트가 없는 머신에서는 원본 때와 동일하게 Word 가 대체 렌더링한다.
+
 ## 브랜드 색 (기존 메뉴판에서 그대로 가져옴, 임의로 바꾸지 말 것)
 
 | 용도 | 값 | 적용 대상 |
@@ -50,7 +54,8 @@ docx 를 직접 손으로 고치지 않는다. 내용은 `data/*.json`, 모양�
 
 ```
 data/           메뉴 내용 (JSON) - 여기가 원본(source of truth)
-build.py        JSON -> docx 생성기. STYLE / WINE_STYLE / PAGES 가 레이아웃 설정
+assets/whisky/  위스키 메뉴판 병 사진 (원본 docx 에서 추출, 크롭 반영됨)
+build.py        JSON -> docx 생성기. STYLE / WINE_STYLE / WHISKY_STYLE / PAGES 가 레이아웃 설정
 tools/          export_pdf.ps1 (docx -> pdf), extract_from_legacy.py (최초 1회 마이그레이션)
 dist/           생성물 (git 추적 안 함)
 ```
@@ -102,9 +107,11 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1   # dist/*.docx ->
   2026-07-29 확정. 디너/런치 표기가 달라도 의도된 것이므로 통일하지 말 것.
 - `로비소네 나파 레드 블랜드`: 영문명/품종/설명 없이 한글명 + 가격 + 산지만 표기하는
   상태를 2026-08-17 확정. 설명을 채우려고 하지 말 것.
-- 산펠레그리노(탄산수/리모나타/로싸) 등 논알콜 음료의 ETC 목록은 위스키 메뉴판에서
-  관리한다. 위스키 메뉴판은 이 저장소 밖에서 관리되므로 여기 와인 리스트에 넣지 말 것
-  (2026-08-17 확정).
+- 산펠레그리노(탄산수/리모나타/로싸) 등 논알콜 음료의 ETC 목록은 위스키 메뉴판
+  (`data/whisky.json`)에서 관리한다. 와인 리스트에 넣지 말 것 (2026-08-17 확정).
+- 위스키 메뉴판 마이그레이션(2026-08-17) 때 원본 오타를 수정함: `Highblal` ->
+  `Highball`, `Kumashochu Sengers` -> `Kumashochu Sengetsu`, `콜라 / 제로콜라 /사이다`
+  -> `콜라 / 제로콜라 / 사이다`.
 
 ## 규칙
 

@@ -35,6 +35,7 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1     # dist/*.pdf  
 | 페피트 런치 메뉴판 | 2 |
 | 페피트 런치 코스메뉴 | 1 (A5) |
 | 페피트 와인 메뉴판 | 6 |
+| 페피트 위스키 메뉴판 | 1 |
 
 - Word 에서 해당 docx 를 열어둔 채로 빌드하면 저장이 막힌다. 닫고 실행할 것.
 - `ChunkFive Ex` 폰트가 설치돼 있어야 로고/섹션 헤더/가격이 의도한 모양으로 나온다.
@@ -46,7 +47,8 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1     # dist/*.pdf  
 
 ## 메뉴를 바꾸려면
 
-1. `data/food.json`, `data/lunch.json`, `data/wine.json`, `data/course.json` 중 해당 파일 수정
+1. `data/food.json`, `data/lunch.json`, `data/wine.json`, `data/course.json`,
+   `data/whisky.json` 중 해당 파일 수정 (위스키 병 사진은 `assets/whisky/`)
 2. `python build.py`
 3. PDF 로 내보내 페이지 수/경계 확인
 4. 페이지가 넘치면 `build.py` 의 `PAGES`(페이지별 섹션 배치) 또는 `STYLE`/`WINE_STYLE`(글자 크기, 간격) 조정
