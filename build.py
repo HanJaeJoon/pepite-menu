@@ -120,7 +120,7 @@ PAGES = {
     'food': [
         {'sections': ['STARTER'], 'item_gap': 34},          # 7항목
         {'sections': ['PASTA'], 'item_gap': 53},            # 6항목
-        {'sections': ['MAIN', 'MEAL'], 'item_gap': 38},     # 4+2항목
+        {'sections': ['MAIN', 'MEAL'], 'item_gap': 28},     # 5+2항목
         {'sections': ['SIDE', 'DESSERT'], 'item_gap': 34},  # 5+2항목
     ],
     # 런치는 항목이 많아 2페이지에 넣으려면 기본 9pt 보다 좁혀야 한다.
@@ -141,7 +141,7 @@ PAGES = {
         [('WHITE WINE', 16, None, False), ('RED WINE', 0, 5)],
         [('RED WINE', 5, 14, False)],
         [('RED WINE', 14, None, False), ('SPARKLING WINE', 0, 4)],
-        [('SPARKLING WINE', 4, None, False), 'NON-ALCOHOLIC'],
+        [('SPARKLING WINE', 4, None, False), 'NON-ALCOHOLIC', 'HOUSE WINE'],
     ],
 }
 

@@ -178,12 +178,12 @@
           "desc_eng": "California Cabernet blends dark red fruit and toasty oak aromas, leaving a deep impression with its rounded, rich structure."
         },
         {
-          "kor": "도멘 파스칼 잔비에 꼬뜨 뒤 루아르 뀌베 앙리 꺄트",
-          "eng": "Pascal Janvier Coteaux du Loir Rouge Cuvée Henri Quatre",
+          "kor": "도멘 파스칼 잔비에 꼬또 뒤 루아르 \"뀌베 뒤 호지에\"",
+          "eng": "Pascal Janvier Coteaux du Loir Rouge \"Cuvée du Rosier\"",
           "price": "90.",
-          "region": "프랑스 >루아르 > 꼬뜨 뒤 루아 | 카버네 프랑 40%, 가메 30%, 말벡 30%",
-          "desc_kor": "검붉은 과실감, 바디감, 그리고 포도품종을 블랜딩하여 탄생하는 복합미를 즐길 수 있는 레드 와인.",
-          "desc_eng": "A red wine that offers a rich, dark-red fruitiness, full body, and the complex flavors resulting from a blend of grape varieties."
+          "region": "프랑스 > 루아르 > 꼬또 뒤 루아르 | 피노 도니스 100%",
+          "desc_kor": "붉은 베리와 장미, 흰 후추 향이 어우러진 가볍고 향긋한 피노 도니스. 산뜻한 산미와 미네랄, 허브 뉘앙스가 돋보이는 루아르 레드 와인.",
+          "desc_eng": "A light, fragrant Pineau d'Aunis with red berry, rose, and white pepper aromas, lifted by fresh acidity and mineral, herbal notes."
         },
         {
           "kor": "빌라 안티노리 키안티 클라시코 리제르바",
@@ -418,6 +418,18 @@
           "region": "프랑스 > 남 프랑스 | 샤르도네 100%",
           "desc_kor": "르 쁘띠 에뚜알은 작은 별 이라는 뜻으로, 이 무알콜 와인의 작고 섬세한 버블을 연상케 한다.",
           "desc_eng": "\"Le Petit Étoile\" means \"little star,\" evoking the small, delicate bubbles in this non-alcoholic wine."
+        }
+      ]
+    },
+    {
+      "name": "HOUSE WINE",
+      "items": [
+        {
+          "kor": "레드 / 화이트 와인",
+          "eng": "",
+          "price": "15.",
+          "desc_kor": "",
+          "desc_eng": ""
         }
       ]
     }
