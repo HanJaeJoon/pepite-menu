@@ -88,7 +88,7 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1   # dist/*.docx ->
                                "region": "(와인만)", "desc_kor": "", "desc_eng": "" } ] } ] }
 ```
 
-`course.json` 은 코스 메뉴라 형태가 달라서 `lines` 배열(가운데 정렬 줄 목록)로 관리한다.
+`course.json`(런치 코스) / `tasting.json`(테이스팅 코스) 은 코스 메뉴라 형태가 달라서 `lines` 배열(가운데 정렬 줄 목록)로 관리한다.
 
 ## 표기 규칙 (2026-07-29 전수 정리, 새로 추가할 때 지킬 것)
 

@@ -34,6 +34,7 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1     # dist/*.pdf  
 | 페피트 요리 메뉴판 | 4 |
 | 페피트 런치 메뉴판 | 2 |
 | 페피트 런치 코스메뉴 | 1 (A5) |
+| 페피트 청담 테이스팅 코스 메뉴판 | 1 (A5) |
 | 페피트 와인 메뉴판 | 6 |
 | 페피트 위스키 메뉴판 | 1 |
 
@@ -47,7 +48,7 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1     # dist/*.pdf  
 
 ## 메뉴를 바꾸려면
 
-1. `data/food.json`, `data/lunch.json`, `data/wine.json`, `data/course.json`,
+1. `data/food.json`, `data/lunch.json`, `data/wine.json`, `data/course.json`, `data/tasting.json`,
    `data/whisky.json` 중 해당 파일 수정 (위스키 병 사진은 `assets/whisky/`)
 2. `python build.py`
 3. PDF 로 내보내 페이지 수/경계 확인

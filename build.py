@@ -434,8 +434,9 @@ def build_wine(out_name):
     print('saved', out_name)
 
 
-def build_course(out_name):
-    data = json.load(open(os.path.join(DATA, 'course.json'), encoding='utf-8'))
+def build_course(key, out_name, item_gap=0):
+    """코스 메뉴 (A5, 가운데 정렬). item_gap 은 한글 메뉴명 줄 위 간격(pt)."""
+    data = json.load(open(os.path.join(DATA, key + '.json'), encoding='utf-8'))
     doc = docx.Document()
     s = doc.sections[0]
     s.page_width, s.page_height = Cm(14.8), Cm(21.0)     # A5
@@ -493,7 +494,7 @@ def build_course(out_name):
         elif ln[0].isascii():
             put(ln, 8, font=STYLE['font_eng'], color=STYLE['gray'], after=3)
         else:
-            put(ln, 10, bold=True, after=1, small=small)
+            put(ln, 10, bold=True, before=item_gap, after=1, small=small)
 
     doc.save(os.path.join(DIST, out_name))
     print('saved', out_name)
@@ -674,5 +675,7 @@ if __name__ == '__main__':
     build_dish('food', '페피트 요리 메뉴판.docx')
     build_dish('lunch', '페피트 런치 메뉴판.docx')
     build_wine('페피트 와인 메뉴판.docx')
-    build_course('페피트 런치 코스메뉴.docx')
+    build_course('course', '페피트 런치 코스메뉴.docx')
+    # 섹션 헤더 없이 7코스만 있어 A5 한 장을 채우도록 간격을 넓힌다
+    build_course('tasting', '페피트 청담 테이스팅 코스 메뉴판.docx', item_gap=30)
     build_whisky('페피트 위스키 메뉴판.docx')
