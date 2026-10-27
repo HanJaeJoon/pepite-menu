@@ -76,6 +76,9 @@ powershell -ExecutionPolicy Bypass -File tools/export_pdf.ps1   # dist/*.docx ->
 1. 해당 `data/*.json` 만 고친다. `dist/` 의 docx 를 직접 편집하지 않는다.
 2. `python build.py` 실행 후 PDF 로 내보내 **페이지 수와 페이지 경계**를 확인한다.
 3. 페이지가 넘치면 docx 를 손보지 말고 `PAGES` 나 `STYLE`(글자 크기, `item_gap`)을 조정한다.
+4. 섹션(`RED WINE` 등)이 페이지 중간에서 시작해 다음 페이지로 넘어가면 안 된다. 섹션은
+   항상 새 페이지 맨 위에서 시작하도록 `PAGES` 를 짜고, 수정할 때마다 PDF 로 검토한다
+   (2026-10-27 요청). 한 페이지에 다 들어가는 작은 섹션은 같은 페이지에 둬도 된다.
 
 ## 데이터 스키마
 
