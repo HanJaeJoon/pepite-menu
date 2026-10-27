@@ -81,8 +81,7 @@ WINE_STYLE = {
     'region_size': 7,
     'desc_size': 8,
     'price_size': 9.5,
-    'item_gap': 16,     # 와인 사이를 한 줄 띄운다. 레드 3종 추가 후에도 6페이지에
-                        # 들어가도록 18 -> 16 (2026-08-17). 18 로 되돌리면 7페이지가 됨.
+    'item_gap': 16,     # 기본값. 실제 간격은 PAGES['wine'] 에서 페이지마다 지정한다.
 }
 
 # 위스키 메뉴판 (2026-08-17 수제 docx 에서 마이그레이션. 병 사진/3단 구성이 있어
@@ -129,19 +128,19 @@ PAGES = {
         {'sections': ['MAIN', 'MEAL', 'DESSERT', 'SIDE', 'DRINKS'],
          'item_gap': 6},                                                       # 3+1+2+1+2항목
     ],
-    # 와인은 섹션당 항목이 많아 한 섹션이 한 페이지에 안 들어간다. 섹션마다
-    # 새 페이지를 시작하면 두 번째 페이지가 반쯤 비므로(이전 구성이 그랬다),
-    # 섹션을 페이지 사이로 이어 흘리고 끊는 위치를 여기에 명시한다.
-    # 덕분에 앞쪽에 한 종을 추가해도 뒤 페이지가 밀리지 않는다.
-    # 와인 사이를 한 줄 띄우면서(item_gap 18) 5페이지에 안 들어가 6페이지로 늘렸다.
-    # 2026-08-17 레드 3종 추가 + NON-ALCOHOLIC 신설, 6페이지 유지 요청으로 재배치.
+    # 와인은 섹션당 항목이 많아 한 섹션이 한 페이지에 안 들어간다. 끊는 위치를
+    # 여기에 명시해서 앞쪽에 한 종을 추가해도 뒤 페이지가 밀리지 않게 한다.
+    # 2026-10-27 요청: 섹션은 페이지 중간에서 시작하지 않고 항상 새 페이지 맨
+    # 위에서 시작한다 (섹션당 2페이지, 6페이지 유지). 그래서 화이트/레드 페이지는
+    # item_gap 을 기본 16 보다 좁혔다.
     'wine': [
-        [('WHITE WINE', 0, 8)],
-        [('WHITE WINE', 8, 16, False)],
-        [('WHITE WINE', 16, None, False), ('RED WINE', 0, 5)],
-        [('RED WINE', 5, 14, False)],
-        [('RED WINE', 14, None, False), ('SPARKLING WINE', 0, 4)],
-        [('SPARKLING WINE', 4, None, False), 'NON-ALCOHOLIC', 'HOUSE WINE'],
+        {'sections': [('WHITE WINE', 0, 10)], 'item_gap': 10},
+        {'sections': [('WHITE WINE', 10, None, False)], 'item_gap': 14},
+        {'sections': [('RED WINE', 0, 9)], 'item_gap': 14},
+        {'sections': [('RED WINE', 9, None, False)], 'item_gap': 14},
+        {'sections': [('SPARKLING WINE', 0, 6)], 'item_gap': 50},
+        {'sections': [('SPARKLING WINE', 6, None, False), 'NON-ALCOHOLIC', 'HOUSE WINE'],
+         'item_gap': 36},
     ],
 }
 
