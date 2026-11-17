@@ -186,20 +186,20 @@
           "desc_eng": "A light, fragrant Pineau d'Aunis with red berry, rose, and white pepper aromas, lifted by fresh acidity and mineral, herbal notes."
         },
         {
-          "kor": "빌라 안티노리 키안티 클라시코 리제르바",
-          "eng": "Villa Antinori Chianti Classico Riserva",
-          "price": "90.",
-          "region": "이탈리아 > 토스카나 > 끼안티 클라시코 | 산지오베제90%, 카버네 소비뇽10%",
-          "desc_kor": "체리와 자두 향에 오크와 타박 향이 어우러진 전통적 토스카나 와인. 탄탄한 구조와 긴 여운이 돋보이는 리제르바.",
-          "desc_eng": "A traditional Tuscan wine with aromas of cherry and plum intertwined with oak and tobacco notes. This Riserva stands out for its solid structure and long-lasting finish."
-        },
-        {
           "kor": "락베어 바로사 밸리 쉬라즈",
           "eng": "RockBare Barossa Valley Shiraz",
           "price": "90.",
           "region": "호주 > 남호주 > 바로사 밸리 | 쉬라즈100%",
           "desc_kor": "잘 익은 블랙베리와 자두, 다크 초콜릿과 후추 뉘앙스가 어우러진 풀바디 쉬라즈로, 부드러운 탄닌과 긴 여운이 돋보이는 와인.",
           "desc_eng": "A full-bodied Shiraz combining ripe blackberry and plum with dark chocolate and peppery nuances, featuring smooth tannins and a long finish."
+        },
+        {
+          "kor": "빌라 안티노리 키안티 클라시코 리제르바",
+          "eng": "Villa Antinori Chianti Classico Riserva",
+          "price": "100.",
+          "region": "이탈리아 > 토스카나 > 끼안티 클라시코 | 산지오베제90%, 카버네 소비뇽10%",
+          "desc_kor": "체리와 자두 향에 오크와 타박 향이 어우러진 전통적 토스카나 와인. 탄탄한 구조와 긴 여운이 돋보이는 리제르바.",
+          "desc_eng": "A traditional Tuscan wine with aromas of cherry and plum intertwined with oak and tobacco notes. This Riserva stands out for its solid structure and long-lasting finish."
         },
         {
           "kor": "비에티 랑게 네비올로",
