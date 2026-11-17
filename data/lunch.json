@@ -7,23 +7,16 @@
         {
           "kor": "시저 샐러드",
           "eng": "Caesar Salad",
-          "price": "13.",
+          "price": "15.",
           "desc_kor": "로메인, 곡물후레이크, 베이컨크럼블, 레몬오일",
           "desc_eng": "Romaine, grain flakes, bacon crumble, lemon oil"
         },
         {
-          "kor": "무화과 카프레제",
-          "eng": "Fig Caprese",
-          "price": "18.",
-          "desc_kor": "무화과, 토마토, 펜넬, 단감, 꽁떼치즈, 토사즈 크림",
-          "desc_eng": "Figs, tomato, fennel, sweet persimmon, Comté cheese, Tosa cheese cream"
-        },
-        {
-          "kor": "마리네이드 참외, 프로슈토 샐러드",
-          "eng": "Marinated Chamoe & Prosciutto Salad",
-          "price": "24.",
-          "desc_kor": "히비스커스에 마리네이드한 참외, 프로슈토를 곁들인 상큼하고 풍미 가득한 샐러드",
-          "desc_eng": "Refreshing, flavorful salad with hibiscus-marinated chamoe and prosciutto"
+          "kor": "카프레제",
+          "eng": "Caprese",
+          "price": "20.",
+          "desc_kor": "토마토, 펜넬, 꽁떼치즈, 토사즈 크림을 곁들인 상큼한 스타터",
+          "desc_eng": "Fresh starter with Tomato, Fennel, Comté, Tossed Cream"
         },
         {
           "kor": "한우 비프 타르타르",
@@ -40,11 +33,11 @@
           "desc_eng": "Abalone, kelp, ricotta, hazelnut candy, endive"
         },
         {
-          "kor": "잿방어 세비체",
-          "eng": "Aged Amberjack Ceviche",
+          "kor": "방어 세비체",
+          "eng": "Aged Yellowtail Ceviche",
           "price": "32.",
-          "desc_kor": "숙성한 잿방어, 로메스코소스, 토마토폼, 허브오일, 펜넬피클, 레몬겔",
-          "desc_eng": "Amberjack, aged, romesco, tomato foam, herb oil, fennel pickle, lemon gel"
+          "desc_kor": "숙성한 방어, 로메스코소스, 토마토폼, 허브오일, 펜넬피클, 레몬겔",
+          "desc_eng": "Yellowtail, aged, romesco, tomato foam, herb oil, fennel pickle, lemon gel"
         }
       ]
     },
