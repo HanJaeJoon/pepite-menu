@@ -38,6 +38,13 @@
           "price": "32.",
           "desc_kor": "숙성한 방어, 로메스코소스, 토마토폼, 허브오일, 펜넬피클, 레몬겔",
           "desc_eng": "Yellowtail, aged, romesco, tomato foam, herb oil, fennel pickle, lemon gel"
+        },
+        {
+          "kor": "문어 카르파치오",
+          "eng": "Octopus Carpaccio",
+          "price": "32.",
+          "desc_kor": "느억맘, 비네그레트, 고수 사워크림, 바질, 라임",
+          "desc_eng": "Nuoc mam, vinaigrette, cilantro sour cream, basil, lime"
         }
       ]
     },
